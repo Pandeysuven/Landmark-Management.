@@ -59,58 +59,86 @@
 	<string.h>
 	"Functions.h"
 
-1551322470 source:d:\landmark-management\graphics.c
+1551402092 source:d:\landmark-management\graphics.c
 	<stdio.h>
 	<stdlib.h>
-	<windows.h>
+	"Functions.h"
 
-1550940667 source:d:\landmark-management\search_by_area.c
+1551405441 source:d:\landmark-management\search_by_area.c
 	<stdio.h>
 	"Functions.h"
 
-1551329066 d:\landmark-management\functions.h
-	<string.h>
-	<stdio.h>
+1551404209 d:\landmark-management\functions.h
 	<windows.h>
+	"Places.h"
+
+1551402107 d:\landmark-management\places.h
+
+1551357921 source:d:\landmark-management\landmarks.c
+	<stdio.h>
 	<stdlib.h>
+	<string.h>
+	"Functions.h"
+
+1551402097 source:d:\landmark-management\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
 	<conio.h>
-	<wincon.h>
-	"Places.h"
+	"Functions.h"
 
-1551325863 d:\landmark-management\places.h
+1551356943 d:\landmark-management\setup.h
 
-1551328710 source:d:\landmark-management\landmarks.c
+1551402099 source:d:\landmark-management\menu_selection.c
+	"Functions.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	<conio.h>
+
+1551402439 source:d:\landmark-management\modify_records.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
 	"Functions.h"
 
-1551329048 source:d:\landmark-management\main.c
-	"setup.h"
-	"Functions.h"
-
-1550944094 d:\landmark-management\setup.h
-
-1551326610 source:d:\landmark-management\menu_selection.c
-	"Functions.h"
-
-1551332082 source:d:\landmark-management\modify_records.c
+1551402103 source:d:\landmark-management\search_by_name.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
 	"Functions.h"
 	"Places.h"
 
-1551330990 source:d:\landmark-management\search_by_name.c
+1551405683 source:d:\landmark-management\setup.c
 	<stdio.h>
-	"Functions.h"
-
-1551330366 source:d:\landmark-management\setup.c
-	"setup.h"
+	<stdlib.h>
+	<windows.h>
 	"Functions.h"
 	<ctype.h>
 	<limits.h>
 
-1551332044 source:d:\landmark-management\places.c
+1551358927 source:d:\landmark-management\places.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<inttypes.h>
 	"Functions.h"
 	"Places.h"
+	<limits.h>
+
+1551402095 source:d:\landmark-management\landmark type.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Functions.h"
+
+1551405383 source:d:\landmark-management\landmark.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
 	<inttypes.h>
+	"Functions.h"
+	"Places.h"
 	<limits.h>
 

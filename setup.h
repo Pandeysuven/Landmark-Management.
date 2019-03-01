@@ -12,8 +12,7 @@
 
 
 
-void setup();
-int CreateFolder();
+
 
 #endif /* SETUP_H */
 

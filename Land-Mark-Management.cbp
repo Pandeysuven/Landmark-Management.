@@ -35,16 +35,16 @@
 		<Unit filename="Graphics.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="Landmark type.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Landmark.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="Menu_Selection.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Places.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="Places.h" />
-		<Unit filename="landmarks.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -60,7 +60,6 @@
 		<Unit filename="setup.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="setup.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

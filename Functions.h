@@ -1,11 +1,6 @@
 #ifndef FUNCTION_H
 #define FUNCTION_H
-#include <string.h>
-#include <stdio.h>
 #include <windows.h>
-#include <stdlib.h>
-#include <conio.h>
-#include <wincon.h>
 #include "Places.h"
 
 #define ARROW_UP 72
@@ -17,34 +12,34 @@
 #define ENTERKEY 13
 #define WHITE 7
 #define RED 4
-#define NUM_AREAS 15
-
 #define HIGHLIGHTED 135
-
-
+#define NUM_AREAS 15
+#define NOT_FOUND 0
+#define FOUND 1
 
 //graphics.c
-void GoToXY(int x, int y);
-COORD GoToMiddle(int,int);
-void CreateTable(int length, int breadth);
-int StripfromFile(char *file_path);
+void GoToXY( int x, int y );
+COORD GoToMiddle( int, int );
+void CreateTable( int length, int breadth );
 
-int GetMenuSelection(char *heading, char (*options)[50], int num_options);
+int CreateLandmarkType( char * );
+char* GetAreaName( int sn );
+char* GetLandmarkType( int sn );
+int SearchLandmarkType( char* inputname );
 
-void search_by_area();
-LANDMARK search_by_name(char *name, int lmark_type);
+int GetMenuSelection( char *heading, char ( *options )[50], int num_options );
+
+int search_by_area();
+LANDMARK search_by_name( char *name, int lmark_type );
 int modify_records();
 
-int CreateLandmarkType(char *);
-char* GetLandmarkType(int sn);
-int SearchLandmarkType(char* inputname);
-void DisplayLandmark(LANDMARK lmark);
-int AddLandmark(char *file_location, int area,int lmarktype);
-int DeleteLandmark(char *file_path, char *lmark_name);
-char* GetAreaName(int sn);
+int AddLandmark( char *file_location, int area, int lmarktype );
+void DisplayLandmark( LANDMARK lmark );
+int DeleteLandmark( char *file_path, char *lmark_name );
 
+void setup();
+int CreateFolder();
+int StrInput( char *_string, char *msg, int sz );
+int StripfromFile( char *file_path );
 unsigned long long int ULLInput();
-int StrInput(char *_string, char *msg, int sz);
-
-
 #endif // FUNCTION_H

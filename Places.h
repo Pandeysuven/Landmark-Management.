@@ -3,11 +3,11 @@
 
 typedef struct _LANDMARK
 {
-    char name[50];
-    char address[100];
+    unsigned long long int phone;
     int area;
     int type;
-    unsigned long long int phone;
+    char address[50];
+    char name[50];
 
 } LANDMARK, *P_LANDMARK;
 
