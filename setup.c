@@ -189,22 +189,22 @@ int StrInput( char *input_string, char *msg, int sz )
     return len;
 }
 
-unsigned long long int ULLInput( int input_lim, char *msg )
+char* PhoneInput(char *msg )
 {
-    int len = 0;
-    char *input_string = calloc( input_lim + 1, sizeof( char ) );
-    fflush( stdin );
+    int len;
+    char *input_string = calloc( 11, sizeof( char ) );
 
     while ( 1 )
     {
         int c;
         len = 0;
         printf( "%s", msg );
-
-        while ( ( c = getchar() ) != '\n' && len <= input_lim )
+        fflush(stdin);
+        while ( ( c = getchar() ) != '\n' && len <= 10 )
         {
-            if ( isdigit( c ) )
+            if ( isdigit( c ) || c == '-')
             {
+            	if (c != '-')
                 input_string[len++] = c;
             }
             else
@@ -223,17 +223,7 @@ unsigned long long int ULLInput( int input_lim, char *msg )
         else
             break;
     }
-
     input_string[len] = '\0';
 
-    unsigned long long int a;
-    a = strtoull( input_string, NULL, 10 );
-
-    if ( a == 0 || a == ULONG_LONG_MAX )
-    {
-        printf( "Invalid number.\n" );
-        return EXIT_FAILURE;
-    }
-
-    return a;
+    return input_string;
 }

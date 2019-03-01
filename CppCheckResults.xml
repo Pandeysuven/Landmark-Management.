@@ -2,14 +2,20 @@
 <results version="2">
     <cppcheck version="1.87" />
     <errors>
+        <error id="invalidPrintfArgType_uint" severity="warning" msg="%I64u in format string (no. 1) requires &apos;unsigned __int64&apos; but the argument type is &apos;char *&apos;." verbose="%I64u in format string (no. 1) requires &apos;unsigned __int64&apos; but the argument type is &apos;char *&apos;." cwe="686">
+            <location file="Landmark.c" line="54" />
+        </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
             <location file="Landmark.c" line="21" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="Landmark.c" line="34" />
+            <location file="Landmark.c" line="33" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="Landmark.c" line="42" />
+            <location file="Landmark.c" line="35" />
+        </error>
+        <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
+            <location file="Landmark.c" line="39" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
             <location file="Menu_Selection.c" line="43" />
@@ -24,7 +30,7 @@
             <location file="Menu_Selection.c" line="157" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="main.c" line="51" />
+            <location file="main.c" line="48" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
             <location file="modify_records.c" line="88" />
@@ -50,7 +56,7 @@
             <location file="setup.c" line="181" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="setup.c" line="196" />
+            <location file="setup.c" line="202" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
             <location file="setup.c" line="213" />

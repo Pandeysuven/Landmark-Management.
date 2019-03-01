@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "Functions.h"
+#define OPTION_NEXT 0
 int search_by_area()
 {
     int j, num_options = 0, selected_area;
@@ -17,6 +18,7 @@ int search_by_area()
     sprintf(area_str, "%d", selected_area);
     strcat(filet, area_str);
     strcat(filet, "\\");
+
     char *temp = calloc(25, sizeof(char));
     for ( j = 1; (temp = GetLandmarkType( j )) != NULL; j++ ) //List of landmark in options[]
     {
@@ -34,6 +36,7 @@ int search_by_area()
             free(temp);
             return 1;
         }
+
         strcpy(options[0], "Next");
         num_options = 1;
         while ( !feof( fpfile ) )
@@ -42,8 +45,13 @@ int search_by_area()
             strcpy(options[num_options++], lmark.name);
         }
         selected_lmark = GetMenuSelection(temp, options, num_options-1) - 1;
-        if (selected_lmark == 1)
+        if (selected_lmark == 0)
 			continue;
+		else if (selected_lmark == '\b')
+		{
+			j -= 1;
+			continue;
+		}
         fseek(fpfile, sizeof(LANDMARK) * (selected_lmark-1), SEEK_SET);
         fread( &lmark, sizeof( lmark ), 1, fpfile );
         DisplayLandmark(lmark);

@@ -1,5 +1,6 @@
 #ifndef FUNCTION_H
 #define FUNCTION_H
+
 #include <windows.h>
 #include "Places.h"
 
@@ -41,5 +42,5 @@ void setup();
 int CreateFolder();
 int StrInput( char *_string, char *msg, int sz );
 int StripfromFile( char *file_path );
-unsigned long long int ULLInput();
+char* PhoneInput(char *);
 #endif // FUNCTION_H

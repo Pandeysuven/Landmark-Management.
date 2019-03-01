@@ -29,18 +29,10 @@ int AddLandmark( char *file_location, int area, int lmark_type )
     }
     lmark.area = area;
     lmark.type = lmark_type;
-    lmark.phone = 0;
     StrInput( lmark.address, "Enter address of landmark: ", 100 );
     fflush( stdin );
-
-    do
-    {
-        lmark.phone = ULLInput( 10, "Enter phone number: " );
-    }
-    while ( lmark.phone == 0 );
-
-    fflush( stdin );
-
+	strcpy(lmark.phone,PhoneInput("Enter phone number: ") );
+	fflush(stdin);
     {
         fwrite( &lmark, sizeof( lmark ), 1, fptr );
         printf( "Successfully added landmark.\n" );
@@ -54,7 +46,7 @@ void DisplayLandmark( LANDMARK lmark )
 {
     printf( "Name: %s\n", lmark.name );
     printf( "Address: %s\n", lmark.address );
-    printf( "Phone number: %I64u\n", lmark.phone );
+    printf( "Phone number: %s\n", lmark.phone );
 }
 
 int DeleteLandmark( char *file_path, char *lmark_name )
