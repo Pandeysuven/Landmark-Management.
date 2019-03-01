@@ -43,12 +43,15 @@ int search_by_area()
         while ( !feof( fpfile ) )
         {
             fread( &lmark, sizeof( lmark ), 1, fpfile );
-            strcpy(options[num_options++], lmark.name);
+            if (strcmp(lmark.name, "") != 0)
+				strcpy(options[num_options++], lmark.name);
         }
-        selected_lmark = GetMenuSelection(temp, options, num_options-1) - 1;
+        if (j > 1)
+			strcpy(options[num_options++], "Previous");
+        selected_lmark = GetMenuSelection(temp, options, num_options) - 1;
         if (selected_lmark == 0)
 			continue;
-		else if (selected_lmark == '\b')
+		else if (selected_lmark == '\b' || (selected_lmark == num_options && j > 1))
 		{
 			j -= 1;
 			continue;
