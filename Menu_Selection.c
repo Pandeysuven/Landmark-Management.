@@ -55,11 +55,11 @@ int GetMenuSelection( char *heading, char ( *options )[50], int num_options )
             exit( 0 );
         }
         else if (input == '\b' )
-		{
-			SetConsoleTextAttribute(hConsole, 7);
-			system("cls");
-			return '\b';
-		}
+        {
+            SetConsoleTextAttribute(hConsole, 7);
+            system("cls");
+            return '\b';
+        }
         else if ( input == 27 )
         {
             SetConsoleTextAttribute( hConsole, 7 );

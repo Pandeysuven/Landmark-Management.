@@ -14,16 +14,8 @@ LANDMARK search_by_name( char *input_name,  int lmark_type )
     for ( j = 1; j <= NUM_AREAS; j++ )
     {
         FILE *fptr;
-        char file[50] = ".\\Data\\Area", str_num[3];
-        sprintf( str_num, "%d", j );
-        strcat( file, str_num );
-        strcat( file, "\\" );
-        char temp[20];
-
-        strcpy( temp, GetLandmarkType( lmark_type ) );
-        temp[strlen( temp ) - 1] = '\0';
-        strcat( file, temp );
-        strcat( file, ".txt" );
+        char file[50];
+        sprintf( file, ".\\Data\\Area%d\\%s.txt", j, GetLandmarkType( lmark_type ));
         fptr = fopen( file, "r" );
 
         if ( fptr == NULL )
@@ -36,8 +28,8 @@ LANDMARK search_by_name( char *input_name,  int lmark_type )
             char lmark_name_lower[50], input_name_lower[50];
             strcpy(lmark_name_lower, lmark.name);
             strcpy(input_name_lower, input_name);
-            strlwr(lmark_name_lower);
-            strlwr(input_name_lower);
+            _strlwr(lmark_name_lower);
+            _strlwr(input_name_lower);
             if ( strstr( lmark_name_lower, input_name_lower ) != NULL)
             {
                 return lmark;

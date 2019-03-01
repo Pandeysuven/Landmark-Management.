@@ -3,3 +3,4 @@ Mall
 School
 Restaurant
 Cinema
+Test lmark type

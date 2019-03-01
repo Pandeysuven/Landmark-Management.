@@ -3,13 +3,13 @@
     <cppcheck version="1.87" />
     <errors>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="Landmark.c" line="21" />
+            <location file="Landmark.c" line="26" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="Landmark.c" line="33" />
+            <location file="Landmark.c" line="58" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="Landmark.c" line="35" />
+            <location file="Landmark.c" line="60" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
             <location file="Menu_Selection.c" line="43" />
@@ -24,54 +24,43 @@
             <location file="Menu_Selection.c" line="163" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="main.c" line="48" />
+            <location file="main.c" line="52" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="modify_records.c" line="74" />
+            <location file="modify_records.c" line="70" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="modify_records.c" line="90" />
+            <location file="modify_records.c" line="94" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="modify_records.c" line="131" />
+            <location file="modify_records.c" line="129" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="modify_records.c" line="145" />
+            <location file="modify_records.c" line="148" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="modify_records.c" line="159" />
-        </error>
-        <error id="redundantAssignment" severity="style" msg="Variable &apos;temp&apos; is reassigned a value before the old one has been used." verbose="Variable &apos;temp&apos; is reassigned a value before the old one has been used." cwe="563">
-            <location file="search_by_area.c" line="24" />
-            <location file="search_by_area.c" line="23" />
-            <symbol>temp</symbol>
-        </error>
-        <error id="strlwrCalled" severity="style" msg="Obsolete function &apos;strlwr&apos; called. It is recommended to use &apos;_strlwr&apos; or &apos;_strlwr_s&apos; instead." verbose="Obsolete function &apos;strlwr&apos; called. It is recommended to use &apos;_strlwr&apos; or &apos;_strlwr_s&apos; instead." cwe="477">
-            <location file="search_by_name.c" line="39" />
-        </error>
-        <error id="strlwrCalled" severity="style" msg="Obsolete function &apos;strlwr&apos; called. It is recommended to use &apos;_strlwr&apos; or &apos;_strlwr_s&apos; instead." verbose="Obsolete function &apos;strlwr&apos; called. It is recommended to use &apos;_strlwr&apos; or &apos;_strlwr_s&apos; instead." cwe="477">
-            <location file="search_by_name.c" line="40" />
+            <location file="modify_records.c" line="162" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="setup.c" line="138" />
+            <location file="setup.c" line="121" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="setup.c" line="158" />
+            <location file="setup.c" line="143" />
+        </error>
+        <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
+            <location file="setup.c" line="151" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
             <location file="setup.c" line="166" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="setup.c" line="181" />
+            <location file="setup.c" line="187" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="setup.c" line="202" />
+            <location file="setup.c" line="198" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="setup.c" line="213" />
-        </error>
-        <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="setup.c" line="220" />
+            <location file="setup.c" line="205" />
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Cppcheck cannot find all the include files (use --check-config for details)" verbose="Cppcheck cannot find all the include files. Cppcheck can check the code without the include files found. But the results will probably be more accurate if all the include files are found. Please check your project&apos;s include directories and add all of them as include directories for Cppcheck. To see what files Cppcheck cannot find use --check-config." />
     </errors>

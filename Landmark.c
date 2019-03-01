@@ -12,27 +12,52 @@ int AddLandmark( char *file_location, int area, int lmark_type )
 
     if ( fptr == NULL )
     {
-        printf( "Error writing to file.\n" );
+        MessageBox(0, "Error writing to file.\n", 0, 0);
         return 1;
     }
 
-    LANDMARK lmark;
-    StrInput( lmark.name, "Enter name of landmark: ", 50 );
-    fflush( stdin );
+    LANDMARK lmark, lmark_b;
+    if( StrInput( lmark.name, "Enter name of landmark: ", 50 ) == EOF)
+    {
+        fclose(fptr);
+        return 1;
+    }
 
-    //LANDMARK temp = search_by_name(lmark.name, lmark_type);
-    if ( strcmpi ( ( search_by_name( lmark.name, lmark_type ) ).name, lmark.name ) == 0 )
+    fflush( stdin );
+    lmark_b = search_by_name( lmark.name, lmark_type );
+    if ( strcmpi( lmark_b.name, lmark.name) != NULL )
     {
         fclose( fptr );
-        printf( "Landmark already exists.\n" );
-        return 1;
+        char err_msg[130];
+        int msgbox_return;
+        sprintf(err_msg, "Landmark %s already exists. Do you want to add another landmark with same name?", lmark.name);
+        msgbox_return = ErrorDialogue(NULL, err_msg, MB_YESNO);
+        switch(msgbox_return)
+        {
+        case IDYES:
+            break;
+        case IDNO:
+            fclose(fptr);
+            return 0;
+        }
+
     }
     lmark.area = area;
     lmark.type = lmark_type;
-    StrInput( lmark.address, "Enter address of landmark: ", 100 );
+    if ( StrInput( lmark.address, "Enter address of landmark: ", 50 ) == EOF)
+    {
+        fclose(fptr);
+        return 1;
+    }
+    if (strcmpi(lmark_b.address, lmark.address) == MATCH_FOUND)
+    {
+        ErrorDialogue(0, "Cannot have two landmarks with same name and address.", 0);
+        fclose(fptr);
+        return 0;
+    }
     fflush( stdin );
-	strcpy(lmark.phone,PhoneInput("Enter phone number: ") );
-	fflush(stdin);
+    strcpy(lmark.phone,PhoneInput("Enter phone number: ") );
+    fflush(stdin);
     {
         fwrite( &lmark, sizeof( lmark ), 1, fptr );
         printf( "Successfully added landmark.\n" );

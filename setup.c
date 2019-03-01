@@ -12,6 +12,7 @@ void setup()
 {
     CreateFolder();
     StripfromFile( ".\\Data\\Landmark_list.txt" ); //
+    StripfromFile( ".\\Data\\Area_list.txt" );
     system( "title Landmark Management System" );
     system( "cls" );
 }
@@ -19,37 +20,22 @@ void setup()
 int CreateFolder()
 {
     FILE *fptr;
-    char *temp = malloc( sizeof( char ) * 50 );
-    char str_i[3];
-    char *lmark = ( char* ) malloc( 100 * sizeof( char ) );
     char *landmark_file = ( char* ) malloc( 50 * sizeof( char ) );
+    system("IF NOT EXIST .\\Temp mkdir .\\Temp");
 
     for ( int i = 1; i <= NUM_AREAS; i++ )
     {
         int j;
-        char folder[50] = ".\\Data\\Area", mkdirs[50] = "IF NOT EXIST ";
-
-        sprintf( str_i, "%d", i );
-        strcat( folder, str_i );
-
-        strcat( mkdirs, folder );
-        strcat( mkdirs, " mkdir " );
-        strcat( mkdirs, folder );
+        char mkdirs[50];
+        sprintf(mkdirs, "IF NOT EXIST .\\Data\\Area%d mkdir .\\Data\\Area%d", i, i);
         system( mkdirs );
 
         j = 1;
 
-        while ( ( temp = GetLandmarkType( j++ ) ) )
+        while ( GetLandmarkType(j) != NULL)
         {
-            strcpy( lmark, temp );
-            lmark[strlen( temp ) - 1] = '\0';
-            strcpy( landmark_file, folder );
-            strcat( landmark_file, "\\" );
-            strcat( lmark, ".txt" );
-            strcat( landmark_file, lmark );
-
+            sprintf(landmark_file, ".\\Data\\Area%d\\%s.txt", i, GetLandmarkType(j++));
             fptr = fopen( landmark_file, "r" );
-
             if ( fptr == NULL )
             {
                 fptr = fopen( landmark_file, "w" );
@@ -59,10 +45,7 @@ int CreateFolder()
 
         }
     }
-
-    free( lmark );
     free( landmark_file );
-    free( temp );
     return 0;
 }
 
@@ -145,6 +128,8 @@ int StrInput( char *input_string, char *msg, int sz )
 
         while ( ( c = getchar() ) != '\n' )
         {
+            if ( c == EOF)
+                return EOF;
             if ( isalpha( c ) || isspace( c ) )
             {
                 if ( len < sz - 1 )
@@ -204,8 +189,8 @@ char* PhoneInput(char *msg )
         {
             if ( isdigit( c ) || c == '-')
             {
-            	if (c != '-')
-                input_string[len++] = c;
+                if (c != '-')
+                    input_string[len++] = c;
             }
             else
             {
@@ -226,4 +211,19 @@ char* PhoneInput(char *msg )
     input_string[len] = '\0';
 
     return input_string;
+}
+
+int ErrorDialogue(char *heading, char *error, int type)
+{
+    int option;
+    if (type == 0)
+    {
+        option = MB_OK;
+    }
+    else
+    {
+        option = type;
+    }
+    int msgrtn = MessageBox(NULL, error, heading, option | MB_ICONEXCLAMATION);
+    return msgrtn;
 }

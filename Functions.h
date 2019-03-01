@@ -17,6 +17,8 @@
 #define NUM_AREAS 5
 #define NOT_FOUND 0
 #define FOUND 1
+#define MATCH_FOUND 0
+#define MATCH_NOT_FOUND 1
 
 //graphics.c
 void GoToXY( int x, int y );
@@ -43,4 +45,5 @@ int CreateFolder();
 int StrInput( char *_string, char *msg, int sz );
 int StripfromFile( char *file_path );
 char* PhoneInput(char *);
+int ErrorDialogue(char *heading, char *error, int type);
 #endif // FUNCTION_H

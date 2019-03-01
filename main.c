@@ -13,6 +13,11 @@ int main()
     int j = 1, num_options = 0,  selected_landmark;
     char *input_name = calloc( 50, sizeof( char ) );
     char *temp = calloc( 50, sizeof( char ) );
+    if (input_name == NULL || temp == NULL)
+    {
+        ErrorDialogue(NULL, "Cannot allocate memory.\n", NULL);
+        exit(1);
+    }
 
     setup();     //checks for folder, sets title and maximizes output window
 
@@ -35,16 +40,15 @@ int main()
 
             for ( j = 1, num_options = 0; ( temp = GetLandmarkType( j ) ) != NULL; j++ ) //List of landmark in options[]
             {
-                if ( temp[strlen( temp ) - 1] == '\n' )
-                    temp[strlen( temp ) - 1] = '\0';
                 strcpy( options[num_options], temp );
                 num_options++;
             }
             selected_landmark = GetMenuSelection( "Search options", options, num_options );
-            if ( selected_landmark == 0 )
+            if ( selected_landmark == 0 || selected_landmark == '\b')
                 break;
 
-            StrInput( input_name, "Input name of landmark: ", 50 );
+            if ( StrInput( input_name, "Input name of landmark: ", 50 ) == EOF)
+                break;
             fflush( stdin );
             system( "cls" );
             lmark = search_by_name( input_name, selected_landmark );
@@ -87,16 +91,6 @@ int main()
 
         case 3:
             modify_records();
-            printf( "Press q to exit.\nPress any key to return to main menu." );
-            input = getch();
-
-            if ( input == KEY_Q_CAPITAL || input == KEY_Q_SMALL )
-            {
-                free( input_name );
-                free( temp );
-                exit( 0 );
-            }
-
             break;
         }
     }

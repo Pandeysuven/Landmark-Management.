@@ -24,6 +24,14 @@ int CreateLandmarkType( char *name )
     if ( SearchLandmarkType( name ) == NOT_FOUND )
     {
         fputs( temp, fptr );
+        free( temp );
+        fclose( fptr );
+        CreateFolder();
+
+
+
+        return 0;
+
     }
     else
     {
@@ -32,10 +40,6 @@ int CreateLandmarkType( char *name )
         fclose( fptr );
         return 1;
     }
-
-    free( temp );
-    fclose( fptr );
-    return 0;
 }
 
 char* GetLandmarkType( int sn )
@@ -60,15 +64,21 @@ char* GetLandmarkType( int sn )
             if ( temp[strlen( temp ) - 1] != '\n' && !feof( fptr ) )
             {
                 printf( "Line is too long.\n" );
-                return 1;
+                fclose(fptr);
+                free(temp);
+                return NULL;
             }
             else
                 line++;
         }
         else
         {
-            fclose( fptr );
-            return temp;
+            if (temp != NULL)
+            {
+                temp[strlen(temp)-1] = '\0';
+                fclose(fptr);
+                return temp;
+            }
         }
     }
 
