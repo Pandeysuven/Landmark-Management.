@@ -13,7 +13,7 @@
 #define WHITE 7
 #define RED 4
 #define HIGHLIGHTED 135
-#define NUM_AREAS 15
+#define NUM_AREAS 5
 #define NOT_FOUND 0
 #define FOUND 1
 

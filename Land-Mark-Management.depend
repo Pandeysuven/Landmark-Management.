@@ -142,3 +142,69 @@
 	"Places.h"
 	<limits.h>
 
+1551405849 source:c:\users\suprim\desktop\landmark-management.-master\graphics.c
+	<stdio.h>
+	<stdlib.h>
+	"Functions.h"
+
+1551422094 c:\users\suprim\desktop\landmark-management.-master\functions.h
+	<windows.h>
+	"Places.h"
+
+1551405849 c:\users\suprim\desktop\landmark-management.-master\places.h
+
+1551422205 source:c:\users\suprim\desktop\landmark-management.-master\landmark type.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Functions.h"
+
+1551421432 source:c:\users\suprim\desktop\landmark-management.-master\landmark.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<inttypes.h>
+	"Functions.h"
+	"Places.h"
+	<limits.h>
+
+1551405849 source:c:\users\suprim\desktop\landmark-management.-master\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"Functions.h"
+
+1551405849 source:c:\users\suprim\desktop\landmark-management.-master\menu_selection.c
+	"Functions.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+
+1551414891 source:c:\users\suprim\desktop\landmark-management.-master\modify_records.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"Functions.h"
+
+1551420458 source:c:\users\suprim\desktop\landmark-management.-master\search_by_area.c
+	<stdio.h>
+	"Functions.h"
+
+1551421963 source:c:\users\suprim\desktop\landmark-management.-master\search_by_name.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"Functions.h"
+	"Places.h"
+
+1551405849 source:c:\users\suprim\desktop\landmark-management.-master\setup.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"Functions.h"
+	<ctype.h>
+	<limits.h>
+

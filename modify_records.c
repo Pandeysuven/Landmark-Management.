@@ -8,10 +8,11 @@ int modify_records()
 {
     char options_main[][50] = { "Add a new landmark", "Edit existing landmark", "Add new type of landmark"};
     char *inputString = ( char* ) calloc( 100, sizeof( char ) );
-    int selected_option = GetMenuSelection( "Add/Modify Landmark", options_main, 3 ), input;
 
     while (1)
     {
+        system("cls");
+        int selected_option = GetMenuSelection( "Add/Modify Landmark", options_main, 3 ), input;
         switch ( selected_option )
         {
         case 0:
@@ -70,6 +71,7 @@ int modify_records()
 
             printf( "Press q to exit.\nPress any key to return to main menu." );
             input = getch();
+            fflush(stdin);
 
             if ( input == KEY_Q_CAPITAL || input == KEY_Q_SMALL )
             {
@@ -126,6 +128,7 @@ int modify_records()
 
             printf( "Press q to exit.\nPress any key to return to main menu." );
             input = getch();
+            fflush(stdin);
 
             if ( input == KEY_Q_CAPITAL || input == KEY_Q_SMALL )
             {
@@ -153,6 +156,7 @@ int modify_records()
             }
             printf( "Press q to exit.\nPress any key to return to main menu." );
             input = getch();
+            fflush(stdin);
             if ( input == KEY_Q_CAPITAL || input == KEY_Q_SMALL )
             {
                 free( inputString );

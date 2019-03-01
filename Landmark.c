@@ -74,7 +74,7 @@ int DeleteLandmark( char *file_path, char *lmark_name )
     {
         fread( plmark, sizeof( lmark ), 1, finput );
 
-        if ( strcmp( lmark.name, lmark_name ) )
+        if ( strcmpi( lmark.name, lmark_name ) )
         {
             fwrite( plmark, sizeof( lmark ), 1, ftemp );
         }

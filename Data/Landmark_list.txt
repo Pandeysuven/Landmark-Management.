@@ -1,5 +1,5 @@
 Hospital
-Police Station
-asdftyuio
-Q
-Test
+Mall
+School
+Restaurant
+Cinema

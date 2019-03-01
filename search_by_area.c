@@ -6,17 +6,19 @@ int search_by_area()
     char options[NUM_AREAS+1][50], filet[50] = ".\\Data\\Area";
     LANDMARK lmark;
 
-    for ( j = 1; GetAreaName( j ) != NULL; j++ )
+    for ( j = 1; GetAreaName( j ) != NULL; j++ )  //Sets area name to array of options
     {
         char area[50];
         strcpy( area, GetAreaName( j ) );
         strcpy( options[num_options++], area );
     }
     selected_area = GetMenuSelection("Select area", options, num_options);
+
     char area_str[3];
     sprintf(area_str, "%d", selected_area);
     strcat(filet, area_str);
     strcat(filet, "\\");
+
     char *temp = calloc(25, sizeof(char));
     for ( j = 1; (temp = GetLandmarkType( j )) != NULL; j++ ) //List of landmark in options[]
     {
@@ -42,7 +44,7 @@ int search_by_area()
             strcpy(options[num_options++], lmark.name);
         }
         selected_lmark = GetMenuSelection(temp, options, num_options-1) - 1;
-        if (selected_lmark == 1)
+        if (selected_lmark == 0)
 			continue;
         fseek(fpfile, sizeof(LANDMARK) * (selected_lmark-1), SEEK_SET);
         fread( &lmark, sizeof( lmark ), 1, fpfile );

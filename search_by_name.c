@@ -30,12 +30,15 @@ LANDMARK search_by_name( char *input_name,  int lmark_type )
         {
             printf( "Error opening file %s", file );
         }
-
         while ( !feof( fptr ) )
         {
             fread( &lmark, sizeof( lmark ), 1, fptr );
-
-            if ( strcmpi( lmark.name, input_name ) == 0 )
+            char lmark_name_lower[50], input_name_lower[50];
+            strcpy(lmark_name_lower, lmark.name);
+            strcpy(input_name_lower, input_name);
+            strlwr(lmark_name_lower);
+            strlwr(input_name_lower);
+            if ( strstr( lmark_name_lower, input_name_lower ) != NULL)
             {
                 return lmark;
             }
