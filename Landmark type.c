@@ -14,7 +14,6 @@ int CreateLandmarkType( char *name )
     strcpy( temp, name );
     strcat( temp, "\n" );
     FILE *fptr = fopen( ".\\Data\\Landmark_list.txt", "a" );
-
     if ( fptr == NULL )
     {
         printf( "Cannot find list of landmarks." );

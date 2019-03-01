@@ -22,8 +22,8 @@ int modify_records()
         {
             system( "cls" );
             char options[20][50];
-            char file[50] = ".\\Data\\Area", str_num[3];
             char *temp;
+            char file[50] = ".\\Data\\Area", str_num[3];
             int num_options = 0, j, selected_landmark, selected_area;
 
             for ( j = 1; GetAreaName( j ) != NULL; j++ )

@@ -37,13 +37,10 @@ int main()
             {
                 if ( temp[strlen( temp ) - 1] == '\n' )
                     temp[strlen( temp ) - 1] = '\0';
-
                 strcpy( options[num_options], temp );
                 num_options++;
             }
-
             selected_landmark = GetMenuSelection( "Search options", options, num_options );
-
             if ( selected_landmark == 0 )
                 break;
 
