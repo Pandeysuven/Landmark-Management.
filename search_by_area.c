@@ -4,7 +4,7 @@
 int search_by_area()
 {
     int j, num_options = 0, selected_area;
-    char options[NUM_AREAS+1][50];
+    char options[NUM_AREAS+2][50];
     LANDMARK lmark;
 
     for(j = 1; strcmp(GetAreaName(j), "") != STR_MATCH; j++)      //Sets area name to array of options
@@ -34,8 +34,8 @@ int search_by_area()
         num_options = 1;
         while(!feof(fpfile))
         {
-            fread(&lmark, sizeof(lmark), 1, fpfile);
-            if(strcmp(lmark.name, "") != 0)
+            int fread_rtn = fread(&lmark, sizeof(lmark), 1, fpfile);
+            if(strcmp(lmark.name, "") != 0 && fread_rtn == 1)
                 strcpy(options[num_options++], lmark.name);
         }
         if(j > 1)
