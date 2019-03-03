@@ -4,58 +4,58 @@
 	<ActiveTarget name="Debug" />
 	<File name="Menu_Selection.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="295" topLine="0" />
+			<Cursor1 position="4694" topLine="136" />
 		</Cursor>
 	</File>
-	<File name="Places.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Places.h" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="84" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Landmark.c" open="1" top="1" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="688" topLine="24" />
-		</Cursor>
-	</File>
-	<File name="Graphics.c" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="211" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="modify_records.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2521" topLine="62" />
+			<Cursor1 position="404" topLine="22" />
 		</Cursor>
 	</File>
 	<File name="search_by_area.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1408" topLine="29" />
+			<Cursor1 position="195" topLine="1" />
+		</Cursor>
+	</File>
+	<File name="Functions.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="380" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="Graphics.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="409" topLine="48" />
+		</Cursor>
+	</File>
+	<File name="Landmark.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2295" topLine="61" />
+		</Cursor>
+	</File>
+	<File name="Landmark type.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5322" topLine="106" />
+		</Cursor>
+	</File>
+	<File name="modify_records.c" open="1" top="1" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2791" topLine="72" />
 		</Cursor>
 	</File>
 	<File name="search_by_name.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1104" topLine="20" />
+			<Cursor1 position="1885" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="setup.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="setup.c" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="865" topLine="36" />
-		</Cursor>
-	</File>
-	<File name="Functions.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="606" topLine="28" />
-		</Cursor>
-	</File>
-	<File name="Landmark type.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1692" topLine="67" />
+			<Cursor1 position="409" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2299" topLine="60" />
+			<Cursor1 position="2867" topLine="70" />
 		</Cursor>
 	</File>
-	<EditorTabsLayout layout="08b68ff85c7955720001b71e00000002=0;Land-Markmanagement:main.c,1;Land-Markmanagement:Menu_Selection.c,4;Land-Markmanagement:search_by_name.c,2;Land-Markmanagement:search_by_area.c,3;Land-Markmanagement:Landmark type.c,5;Land-Markmanagement:Functions.h,*6;Land-Markmanagement:Landmark.c,7;Land-Markmanagement:setup.c,8;Land-Markmanagement:modify_records.c,9;Land-Markmanagement:Places.h,11;Land-Markmanagement:Graphics.c@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=577;besth=204;minw=577;minh=204;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=08b68ff85c7955720001b71e00000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
+	<EditorTabsLayout layout="08bfd3a85c7b1e9c0000c18800000002=0;Land-Markmanagement:main.c,1;Land-Markmanagement:Menu_Selection.c,2;Land-Markmanagement:search_by_name.c,3;Land-Markmanagement:search_by_area.c,4;Land-Markmanagement:Functions.h,5;Land-Markmanagement:Landmark type.c,6;Land-Markmanagement:Landmark.c,*7;Land-Markmanagement:modify_records.c,8;Land-Markmanagement:Graphics.c,10;Land-Markmanagement:setup.c|08bfc2085c7b1e9c0000c1a000000003=+9;Land-Markmanagement:Places.h@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=180;besth=180;minw=180;minh=180;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=08bfd3a85c7b1e9c0000c18800000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=08bfc2085c7b1e9c0000c1a000000003;caption=;state=2098172;dir=2;layer=0;row=1;pos=0;prop=100000;bestw=577;besth=204;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|dock_size(2,0,1)=351|" />
 </CodeBlocks_layout_file>
