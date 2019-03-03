@@ -27,7 +27,14 @@ int CreateLandmarkType(char *name)
         free(lmark_type);
         return -1;
     }
-    freopen(".\\Data\\Landmark_list.txt", "a", fptr);
+    if(freopen(".\\Data\\Landmark_list.txt", "a", fptr) == NULL)
+    {
+        char errmsg[50];
+        sprintf(errmsg, "Error %d: Error in Landmark_list.txt.\n%s", ENOFILE, strerror(ENOFILE));
+        ErrorDialogue("File error", errmsg, 0);
+        free(lmark_type);
+        return -1;
+    }
 
     sprintf(lmark_type, "%s\n", name);
     if(SearchLandmarkType(name) == NOT_FOUND)
@@ -135,6 +142,7 @@ int SearchLandmarkType(char* input)
         char errmsg[50];
         sprintf(errmsg, "Error %d: %s", ENOMEM, strerror(ENOMEM));
         ErrorDialogue("Memory allocation error", errmsg, 0);
+        free(input_name);
         exit(-1);
     }
 

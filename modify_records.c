@@ -16,167 +16,173 @@ int modify_records()
         exit(-1);
     }
 
-    while(1)
+
+    system("cls");
+    int selected_option = GetMenuSelection("Add/Modify Landmark", options_main, 3), input;
+    switch(selected_option)
+    {
+    case 0:
+        free(inputString);
+        return 0;
+    case '\b':
+        free(inputString);
+        return 0;
+    case 27:
+        free(inputString);
+        return 0;
+    case 1:
     {
         system("cls");
-        int selected_option = GetMenuSelection("Add/Modify Landmark", options_main, 3), input;
-        switch(selected_option)
+        char options[20][50];
+        char *temp;
+        char file[50];
+        int num_options = 0, j, selected_landmark, selected_area;
+
+        for(j = 1; strcmp(GetAreaName(j), "") != STR_MATCH; j++)
         {
-        case 0:
-            free(inputString);
-            return 0;
-        case '\b':
-            free(inputString);
-            return 0;
-        case 27:
-            free(inputString);
-            return 0;
-        case 1:
+            char area[50];
+            strcpy(area, GetAreaName(j));
+            strcpy(options[num_options++], area);
+        }
+        selected_area = GetMenuSelection("Select Area", options, num_options);
+        if(selected_area == 0 || selected_area == '\b')
         {
-            system("cls");
-            char options[20][50];
-            char *temp;
-            char file[50];
-            int num_options = 0, j, selected_landmark, selected_area;
-
-            for(j = 1; strcmp(GetAreaName(j), "") != STR_MATCH; j++)
-            {
-                char area[50];
-                strcpy(area, GetAreaName(j));
-                strcpy(options[num_options++], area);
-            }
-            selected_area = GetMenuSelection("Select Area", options, num_options);
-            if(selected_area == 0 || selected_area == '\b')
-            {
-                free(inputString);
-                return 0;
-            }
-            num_options = 0;
-            j = 1;
-            {
-                while((strcmp( (temp = GetLandmarkType(j++)), "")) != STR_MATCH)
-                {
-                    strcpy(options[num_options], temp);
-                    num_options++;
-                    system("cls");
-                }
-                selected_landmark = GetMenuSelection("Select Landmark Type", options, num_options);
-
-                if(selected_landmark == 0)
-                    return 0;
-                if(selected_landmark == '\b')
-                    continue;
-            }
-            system("cls");
-            sprintf(file, ".\\Data\\Area%d\\%s.bin", selected_area, GetLandmarkType(selected_landmark));
-            AddLandmark(file, selected_area, selected_landmark);
-            free(temp);
-
-            printf("Press q to exit.\nPress any key to return to main menu.");
-            input = getch();
-            fflush(stdin);
-
-            if(input == KEY_Q_CAPITAL || input == KEY_Q_SMALL)
-            {
-                free(inputString);
-                exit(0);
-            }
-            if(input == '\b')
-            {
-                break;
-            }
             free(inputString);
             return 0;
         }
+        num_options = 0;
+        j = 1;
+        {
+            while((strcmp((temp = GetLandmarkType(j++)), "")) != STR_MATCH)
+            {
+                strcpy(options[num_options], temp);
+                num_options++;
+                system("cls");
+            }
+            selected_landmark = GetMenuSelection("Select Landmark Type", options, num_options);
 
-        case 2:
-            system("cls");
-            char   options[][50] = {"Edit existing landmark\n", "Delete landmark"};
-            int selected_edit_option = GetMenuSelection("Edit Landmark", options, 2);
-            if(selected_edit_option == 0 || selected_edit_option == '\b')
+            if(selected_landmark == 0 || selected_landmark == 'b')
                 return 0;
-            system("cls");
-            if(StrInput(inputString, "Enter landmark name: ", 50) == EOF)
-                return 1;
-            fflush(stdin);
-            LANDMARK lmark;
-
-            for(int i = 1; strcmp(GetLandmarkType(i), "") != STR_MATCH; i++)
-            {
-                if(search_by_name(inputString, i) == FOUND)
-                {
-                    char file[50];
-                    sprintf(file, ".\\Area%d\\%s.bin", lmark.area, GetLandmarkType(i));
-                    int area = lmark.area;
-
-                    if(selected_edit_option == 1)
-                    {
-                        DeleteLandmark(file, lmark.name);
-                        AddLandmark(file, area, i);
-                        break;
-                    }
-
-                    else if(selected_edit_option == 2)
-                    {
-                        DeleteLandmark(file, lmark.name);
-                        break;
-                    }
-                }
-                else
-                {
-                    printf("Landmark not found.\n");
-
-                }
-            }
-
-            printf("Press q to exit.\nPress any key to return to main menu.");
-            input = getch();
-            fflush(stdin);
-
-            if(input == KEY_Q_CAPITAL || input == KEY_Q_SMALL)
-            {
-                free(inputString);
-                exit(0);
-            }
-            if(input == '\b')
-            {
-                break;
-            }
-            free(inputString);
-            return 0;
-
-        case 3:
-            system("cls");
-            GoToXY(0, 0);
-            if(StrInput(inputString, "Input name of landmark type: ", 50) == EOF)
-                return 1;
-            fflush(stdin);
-
-            if(SearchLandmarkType(inputString))
-            {
-                printf("Landmark %s already exists.\n", inputString);
-            }
-            else
-            {
-                CreateLandmarkType(inputString);
-                printf("Successfully created new Landmark type.\n");
-
-            }
-            printf("Press q to exit.\nPress any key to return to main menu.");
-            input = getch();
-            fflush(stdin);
-            if(input == KEY_Q_CAPITAL || input == KEY_Q_SMALL)
-            {
-                free(inputString);
-                exit(0);
-            }
-            if(input == '\b')
-            {
-                break;
-            }
-            free(inputString);
-            return 0;
         }
+        system("cls");
+        sprintf(file, ".\\Data\\Area%d\\%s.bin", selected_area, GetLandmarkType(selected_landmark));
+        AddLandmark(file, selected_area, selected_landmark);
+        free(temp);
+
+        printf("Press q to exit.\nPress any key to return to main menu.");
+        input = getch();
+        fflush(stdin);
+
+        if(input == KEY_Q_CAPITAL || input == KEY_Q_SMALL)
+        {
+            free(inputString);
+            exit(0);
+        }
+        free(inputString);
+        return 0;
+    }
+
+    case 2:
+        system("cls");
+        char   options[][50] = {"Edit existing landmark\n", "Delete landmark"};
+        int selected_edit_option = GetMenuSelection("Edit Landmark", options, 2);
+        if(selected_edit_option == 0 || selected_edit_option == '\b')
+            break;
+        //system("cls");
+        if(StrInput(inputString, "Enter landmark name: ", 50) == EOF)
+            return 1;
+        fflush(stdin);
+        LANDMARK lmark;
+        int num_options = 0;
+        FILE *fp_search, fptr;
+        for(int i = 1; strcmp(GetLandmarkType(i), "") != STR_MATCH; i++)
+        {
+            if(search_by_name(inputString, i) == FOUND)
+            {
+                fp_search = fopen(".\\Temp\\search_result.bin", "rb"), fptr;
+                if(fp_search == NULL)
+                {
+                    char errmsg[50];
+                    sprintf(errmsg, "Error %d: Error in Search_result.bin\n%s", errno, strerror(errno));
+                    ErrorDialogue("File error", errmsg, 0);
+                    return -1;
+                }
+                while(fread(&lmark, sizeof(LANDMARK), 1, fp_search) == 1)
+                {
+                    strcpy(options[num_options++], lmark.name);
+                }
+            }
+        }
+        system("cls");
+        int selected_landmark = GetMenuSelection("Select landmark to be edited", options, num_options);
+        fseek(fp_search, 0, SEEK_SET);
+        for(int k = 0; k < selected_landmark; k++)
+        {
+            fread(&lmark, sizeof(LANDMARK), 1, fp_search);
+        }
+        char file[50];
+        sprintf(file, ".\\Data\\Area%d\\%s.bin", lmark.area, GetLandmarkType(lmark.type));
+
+        if(selected_edit_option == 1)
+        {
+            DeleteLandmark(file, lmark.name);
+            AddLandmark(file, lmark.area, lmark.type);
+            break;
+        }
+
+        else if(selected_edit_option == 2)
+        {
+            DeleteLandmark(file, lmark.name);
+            break;
+        }
+
+        printf("Press q to exit.\nPress any key to return to main menu.");
+        input = getch();
+        fflush(stdin);
+
+        if(input == KEY_Q_CAPITAL || input == KEY_Q_SMALL)
+        {
+            free(inputString);
+            exit(0);
+        }
+        if(input == '\b')
+        {
+            break;
+        }
+        free(inputString);
+        return 0;
+
+    case 3:
+        system("cls");
+        GoToXY(0, 0);
+        if(StrInput(inputString, "Input name of landmark type: ", 50) == EOF)
+            return 1;
+        fflush(stdin);
+
+        if(SearchLandmarkType(inputString))
+        {
+            printf("Landmark %s already exists.\n", inputString);
+        }
+        else
+        {
+            CreateLandmarkType(inputString);
+            printf("Successfully created new Landmark type.\n");
+
+        }
+        printf("Press q to exit.\nPress any key to return to main menu.");
+        input = getch();
+        fflush(stdin);
+        if(input == KEY_Q_CAPITAL || input == KEY_Q_SMALL)
+        {
+            free(inputString);
+            exit(0);
+        }
+        if(input == '\b')
+        {
+            break;
+        }
+        free(inputString);
+        return 0;
     }
     free(inputString);
     return 0;

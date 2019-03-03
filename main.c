@@ -8,7 +8,7 @@ int main()
 {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     char options_main[][50] = {"Search by name", "Search by area", "Add/Modify records" };
-    char options[20][50];
+    char options[50][50];
     LANDMARK lmark;
     int j = 1, num_options = 0,  selected_landmark;
     char *input_name = calloc(50, sizeof(char));
@@ -27,7 +27,6 @@ int main()
         ErrorDialogue("Memory allocation error", errmsg, 0);
         exit(-1);
     }
-
     setup();     //checks for folder, sets title and maximizes output window
 
     while(1)
@@ -50,12 +49,20 @@ int main()
             return 0;
 
         case 1:
+
             for(j = 1, num_options = 0; strcmp((temp = GetLandmarkType(j)), "") != STR_MATCH; j++)       //List of landmark in options[]
             {
+                if(num_options > 50)
+                {
+                    char errmsg[50];
+                    sprintf(errmsg, "Error %d while retrieving types of landmark.\n%s", E2BIG, strerror(E2BIG));
+                    ErrorDialogue("Error", errmsg, 0);
+                    exit(-1);
+                }
                 strcpy(options[num_options], temp);
                 num_options++;
             }
-            selected_landmark = GetMenuSelection("Search options", options, num_options);
+            selected_landmark = GetMenuSelection("Select type of landmark", options, num_options);
             if(selected_landmark == 0 || selected_landmark == '\b')
                 break;
 
@@ -78,10 +85,11 @@ int main()
                     ErrorDialogue("File error", errmsg, 0);
                     exit(-1);
                 }
-                while (fread(&lmark, sizeof(LANDMARK), 1, fpsearch) )
+                while(fread(&lmark, sizeof(LANDMARK), 1, fpsearch))
                 {
-					DisplayLandmark(lmark);
-				}
+                    DisplayLandmark(lmark);
+                    printf("\n");
+                }
             }
 
             printf("Press q to exit.\nPress any key to return to main menu.");
@@ -92,7 +100,6 @@ int main()
                 free(temp);
                 exit(0);
             }
-
             break;
 
         case 2:

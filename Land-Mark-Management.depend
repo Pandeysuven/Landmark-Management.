@@ -64,7 +64,7 @@
 	<stdlib.h>
 	"Functions.h"
 
-1551587110 source:d:\landmark-management\search_by_area.c
+1551630534 source:d:\landmark-management\search_by_area.c
 	<stdio.h>
 	"Functions.h"
 
@@ -73,7 +73,7 @@
 	"Places.h"
 	<errno.h>
 
-1551574105 d:\landmark-management\places.h
+1551623146 d:\landmark-management\places.h
 
 1551357921 source:d:\landmark-management\landmarks.c
 	<stdio.h>
@@ -81,7 +81,7 @@
 	<string.h>
 	"Functions.h"
 
-1551585145 source:d:\landmark-management\main.c
+1551630684 source:d:\landmark-management\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -90,21 +90,21 @@
 
 1551356943 d:\landmark-management\setup.h
 
-1551578065 source:d:\landmark-management\menu_selection.c
+1551623310 source:d:\landmark-management\menu_selection.c
 	"Functions.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<conio.h>
 
-1551575124 source:d:\landmark-management\modify_records.c
+1551633126 source:d:\landmark-management\modify_records.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<conio.h>
 	"Functions.h"
 
-1551585501 source:d:\landmark-management\search_by_name.c
+1551632547 source:d:\landmark-management\search_by_name.c
 	<stdio.h>
 	<stdlib.h>
 	<windows.h>
@@ -112,7 +112,7 @@
 	"Functions.h"
 	"Places.h"
 
-1551579432 source:d:\landmark-management\setup.c
+1551632850 source:d:\landmark-management\setup.c
 	<stdio.h>
 	<stdlib.h>
 	<windows.h>
@@ -129,13 +129,13 @@
 	"Places.h"
 	<limits.h>
 
-1551575124 source:d:\landmark-management\landmark type.c
+1551621300 source:d:\landmark-management\landmark type.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"Functions.h"
 
-1551586379 source:d:\landmark-management\landmark.c
+1551633409 source:d:\landmark-management\landmark.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

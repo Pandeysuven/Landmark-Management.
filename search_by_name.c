@@ -47,10 +47,10 @@ int search_by_name(char *input_name,  int lmark_type)
             _strlwr(input_name_lower);
             if(strstr(lmark_name_lower, input_name_lower) != NULL)
             {
-            	bool_found = TRUE;
+                bool_found = TRUE;
                 int fwrite_return = fwrite(&lmark, sizeof(LANDMARK), 1, fp_search_result);
 
-                if (fwrite_return == 1)
+                if(fwrite_return == 1)
                 {
                     bool_found == FOUND;
                 }

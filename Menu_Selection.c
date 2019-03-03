@@ -12,7 +12,7 @@ int GetMenuSelection(char *heading, char (*options)[50], int num_options)
     if(num_options > 99 || num_options < 1)
     {
         char errmsg[50];
-        sprintf(errmsg, "Error %d: %s.", E2BIG, strerror(E2BIG));
+        sprintf(errmsg, "Error %d: %s\n%s to GetMenuSelection( ) .", EINVAL, heading, strerror(EINVAL));
         ErrorDialogue("Error", errmsg, 0);
         exit(-1);
     }
@@ -24,13 +24,15 @@ int GetMenuSelection(char *heading, char (*options)[50], int num_options)
     printf("%s", heading);
     SetConsoleTextAttribute(hConsole, WHITE);
 
-    for(int i = 0; i < num_options; i++)
     {
-        GoToMiddle(x, y + i);
-        printf("%2d. %s", i + 1, *(options + i));
+        for(int i = 0; i < num_options; i++)
+        {
+            GoToMiddle(x, y + i);
+            printf("%2d. %s", i + 1, *(options + i));
+        }
+        GoToMiddle(x - 2, y + num_options + 1);
+        printf("Choose one of the above: ");
     }
-    GoToMiddle(x - 2, y + num_options + 1);
-    printf("Choose one of the above: ");
 
     //Sets console attribute to highlighted, moves cursor to option 1 and reprints option
     SetConsoleTextAttribute(hConsole, HIGHLIGHTED);
@@ -41,7 +43,7 @@ int GetMenuSelection(char *heading, char (*options)[50], int num_options)
 
     while(1)
     {
-    	int input;
+        int input;
         SetConsoleTextAttribute(hConsole, 7);
         fflush(stdin);
         input = getch();
@@ -71,29 +73,40 @@ int GetMenuSelection(char *heading, char (*options)[50], int num_options)
             {
                 if((input-48) > num_options)
                 {
-                    ErrorDialogue("Invalid option.", "Selected option is out of range.", 0);
+                    char errmsg[50];
+                    sprintf(errmsg, "Selected option %d is out of range.", input-48);
+                    ErrorDialogue("Invalid option.", errmsg, 0);
+                    GoToMiddle(x + 23, y + num_options + 1);
+                    printf(" ");
+                    GoToMiddle(x + 23, y + num_options + 1);
                     continue;
                 }
                 else
-				{
-					system("cls");
-					return input - 48;
-				}
+                {
+                    system("cls");
+                    return input - 48;
+                }
             }
             else if(num_options >= 10 && input < 100)
             {
                 selected_option = input - 48;
-				GoToMiddle(x + 23, y + num_options + 1);
-				printf("%d", selected_option);
+                GoToMiddle(x + 23, y + num_options + 1);
+                printf("%d", selected_option);
                 fflush(stdin);
-                input = getch();
+                input = getche();
+                //printf("%d", input-48);
                 if(input == 13)
                     return selected_option;
                 selected_option = (selected_option * 10) + (input - 48);
 
                 if(selected_option > num_options)
                 {
-                    ErrorDialogue("Invalid option.", "Selected option is out of range.", 0);
+                    char errmsg[50];
+                    sprintf(errmsg, "Selected option %d is out of range.", selected_option);
+                    ErrorDialogue("Invalid option.", errmsg, 0);
+                    GoToMiddle(x + 23, y + num_options + 1);
+                    printf("  ");
+                    GoToMiddle(x + 23, y + num_options + 1);
                     continue;
                 }
                 system("cls");
@@ -123,7 +136,6 @@ int GetMenuSelection(char *heading, char (*options)[50], int num_options)
 
             printf("%2d. %s", selected_option, *(options + selected_option - 1));
             GoToMiddle(x + 23, y + num_options + 1);
-
             break;
 
         case ARROW_UP:

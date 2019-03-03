@@ -160,7 +160,7 @@ int StripfromFile(char *file_path)
     while(fgets(line, line_sz, ftemp))
     {
         fputs(line, finput);
-	}
+    }
 
     free(line);
     fclose(ftemp);
@@ -231,7 +231,7 @@ int StrInput(char *input_string, char *msg, int sz)
 
 char* PhoneInput(char *msg)
 {
-    int len, limit = 10, pos;
+    int len, limit = 10;
     char *input_string = calloc(limit+1, sizeof(char));
     if(input_string == NULL)
     {
@@ -245,7 +245,7 @@ char* PhoneInput(char *msg)
     {
         int c;
         len = 0;
-        pos = 0;
+        int pos = 0;
         printf("%s", msg);
         fflush(stdin);
         while((c = getchar()) != '\n' && len <= limit)
@@ -271,9 +271,12 @@ char* PhoneInput(char *msg)
         }
         if(len == 0)
         {
-            printf("Input is empty.\n");
-            fflush(stdin);
-            continue;
+            int empty_input_response = ErrorDialogue("Empty input", "Input is empty. Do you want to save landmark without phone number? ", MB_YESNO);
+            if(empty_input_response == IDYES)
+            {
+                strcpy(input_string, "N/A");
+                return input_string;
+            }
         }
         else
             break;
