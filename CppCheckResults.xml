@@ -6,10 +6,18 @@
             <location file="Landmark.c" line="32" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="Landmark.c" line="74" />
+            <location file="Landmark.c" line="122" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="Landmark.c" line="76" />
+            <location file="Landmark.c" line="124" />
+        </error>
+        <error id="uninitvar" severity="error" msg="Uninitialized variable: fp_search" verbose="Uninitialized variable: fp_search" cwe="908">
+            <location file="Landmark.c" line="112" />
+            <symbol>fp_search</symbol>
+        </error>
+        <error id="uninitvar" severity="error" msg="Uninitialized variable: fp_search" verbose="Uninitialized variable: fp_search" cwe="908">
+            <location file="Landmark.c" line="113" />
+            <symbol>fp_search</symbol>
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
             <location file="Menu_Selection.c" line="48" />
@@ -37,17 +45,13 @@
             <location file="modify_records.c" line="94" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="modify_records.c" line="140" />
+            <location file="modify_records.c" line="141" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="modify_records.c" line="159" />
+            <location file="modify_records.c" line="160" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
-            <location file="modify_records.c" line="173" />
-        </error>
-        <error id="variableScope" severity="style" msg="The scope of the variable &apos;pos&apos; can be reduced." verbose="The scope of the variable &apos;pos&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398">
-            <location file="setup.c" line="234" />
-            <symbol>pos</symbol>
+            <location file="modify_records.c" line="174" />
         </error>
         <error id="fflushOnInputStream" severity="portability" msg="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." verbose="fflush() called on input stream &apos;stdin&apos; may result in undefined behaviour on non-linux systems." cwe="398">
             <location file="setup.c" line="176" />

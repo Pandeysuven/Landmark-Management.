@@ -52,7 +52,7 @@ int search_by_name(char *input_name,  int lmark_type)
 
                 if(fwrite_return == 1)
                 {
-                    bool_found == FOUND;
+                    bool_found = FOUND;
                 }
             }
         }

@@ -94,12 +94,12 @@ int modify_records()
         fflush(stdin);
         LANDMARK lmark;
         int num_options = 0;
-        FILE *fp_search, fptr;
+        FILE *fp_search;
         for(int i = 1; strcmp(GetLandmarkType(i), "") != STR_MATCH; i++)
         {
             if(search_by_name(inputString, i) == FOUND)
             {
-                fp_search = fopen(".\\Temp\\search_result.bin", "rb"), fptr;
+                fp_search = fopen(".\\Temp\\search_result.bin", "rb");
                 if(fp_search == NULL)
                 {
                     char errmsg[50];
