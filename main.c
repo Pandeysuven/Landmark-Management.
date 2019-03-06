@@ -5,7 +5,6 @@
 
 int main()
 {
-    //printf("%s %d", strerror(ENOFILE), strlen(strerror(ENOFILE)));
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     char options_main[][50] = {"Search by name", "Search by area", "Add/Modify records" };
     char options[50][50];

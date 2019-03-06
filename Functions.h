@@ -1,5 +1,9 @@
 #define _CRT_SECURE_NO_WARNINGS
 #pragma comment(lib,"User32.lib")
+
+extern int NUM_AREA_G;
+extern int NUM_LANDMARK_TYPE_G;
+
 #ifndef FUNCTION_H
 #define FUNCTION_H
 
@@ -35,6 +39,7 @@
 #define strcmpi _strcmpi
 #define getch _getch
 #define getche _getche
+
 
 //graphics.c
 void GoToXY(int x, int y);

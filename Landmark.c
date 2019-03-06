@@ -6,7 +6,6 @@
 #include "Places.h"
 #include <limits.h>
 
-
 int AddLandmark(char *file_location, int area, int lmark_type)
 {
     FILE *fptr = fopen(file_location, "rb");

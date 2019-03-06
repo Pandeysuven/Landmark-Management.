@@ -16,6 +16,7 @@ int modify_records()
         exit(-1);
     }
 
+	while (1)
 
     system("cls");
     int selected_option = GetMenuSelection("Add/Modify Landmark", options_main, 3), input;

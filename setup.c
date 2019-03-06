@@ -8,12 +8,18 @@
 #include <ctype.h>
 #include <limits.h>
 
+int NUM_LANDMARK_TYPE_G;
+int NUM_AREA_G;
+
 void setup()
 {
     system("title Landmark Management System");
-    StripfromFile(".\\Data\\Landmark_list.txt");
-    StripfromFile(".\\Data\\Area_list.txt");
-    CreateFolder();
+    int lmark_types, areas;
+	lmark_types = StripfromFile(".\\Data\\Landmark_list.txt");
+	areas = StripfromFile(".\\Data\\Area_list.txt");
+	NUM_LANDMARK_TYPE_G = lmark_types;
+	NUM_AREA_G = areas;
+	CreateFolder();
     system("cls");
 }
 
@@ -53,6 +59,7 @@ int CreateFolder()
 int StripfromFile(char *file_path)
 {
     FILE *finput, *ftemp;
+	int nlines = 0;
     finput =fopen(file_path, "r");
     if(finput == NULL)
     {
@@ -147,13 +154,14 @@ int StripfromFile(char *file_path)
     while(fgets(line, line_sz, ftemp))
     {
         fputs(line, finput);
+		nlines++;
     }
     free(line);
     fclose(ftemp);
     fclose(finput);
 
     remove(".\\Strip_temp.bin");
-    return 0;
+    return nlines;
 }
 
 

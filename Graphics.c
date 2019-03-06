@@ -6,8 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-
 #define COLOR_CYAN 9
 
 void GoToXY(int column, int line)
