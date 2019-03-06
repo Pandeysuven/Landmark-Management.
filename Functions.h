@@ -1,9 +1,12 @@
+#define _CRT_SECURE_NO_WARNINGS
+#pragma comment(lib,"User32.lib")
 #ifndef FUNCTION_H
 #define FUNCTION_H
 
 #include <windows.h>
 #include "Places.h"
 #include <errno.h>
+#include <conio.h>
 
 #define ARROW_UP 72
 #define ARROW_DOWN 80
@@ -22,6 +25,16 @@
 #define STR_MATCH 0
 #define MATCH_FOUND 0
 #define MATCH_NOT_FOUND 1
+#define OPTION_LIMIT 100
+#define KEY_ESC 27
+#define RTN_ESC (OPTION_LIMIT+KEY_ESC)
+
+#ifndef ENOFILE
+#define ENOFILE ENOENT
+#endif
+#define strcmpi _strcmpi
+#define getch _getch
+#define getche _getche
 
 //graphics.c
 void GoToXY(int x, int y);

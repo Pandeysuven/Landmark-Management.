@@ -1,17 +1,17 @@
 //Function setup
 //Sets title of output window
 //Clears output window
+#include "Functions.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
-#include "Functions.h"
 #include <ctype.h>
 #include <limits.h>
 
 void setup()
 {
     system("title Landmark Management System");
-    StripfromFile(".\\Data\\Landmark_list.txt");   //
+    StripfromFile(".\\Data\\Landmark_list.txt");
     StripfromFile(".\\Data\\Area_list.txt");
     CreateFolder();
     system("cls");
@@ -20,27 +20,29 @@ void setup()
 int CreateFolder()
 {
     FILE *fptr;
-    int num_area = 0;
-    for(int i = 1; strcmp(GetAreaName(i), "") != STR_MATCH; i++)
+	system("IF NOT EXIST .\\Temp mkdir .\\Temp");
+    for(int i = 1; strcmp(GetAreaName(i), ""); i++)
     {
-        num_area++;
-    }
-
-    for(int i = 1; i <= num_area; i++)
-    {
-        char mkdirs[50];
+        char mkdirs[70];
         sprintf(mkdirs, "IF NOT EXIST .\\Data\\Area%d mkdir .\\Data\\Area%d", i, i);
         system(mkdirs);
 
-        char landmark_file[75];
+        char landmark_file[100];
 
-        for(int j = 1; (strcmp(GetLandmarkType(j), "") != STR_MATCH); j++)
+        for(int j = 1; !strcmp(GetLandmarkType(j), ""); j++)
         {
             sprintf(landmark_file, ".\\Data\\Area%d\\%s.bin", i, GetLandmarkType(j));
             fptr = fopen(landmark_file, "rb");
             if(fptr == NULL)
             {
                 fptr = fopen(landmark_file, "wb");
+                if(fptr==NULL)
+                {
+                    char errmsg[150];
+                    sprintf(errmsg, "Error: %d\nError creating file: %s.\n%s", EPERM, landmark_file, strerror(EPERM));
+                    ErrorDialogue("File error", errmsg, 0);
+                    exit(-1);
+                }
             }
             fclose(fptr);
         }
@@ -51,51 +53,30 @@ int CreateFolder()
 int StripfromFile(char *file_path)
 {
     FILE *finput, *ftemp;
-    if(strstr(file_path, ".txt") != 0)
+    finput =fopen(file_path, "r");
+    if(finput == NULL)
     {
-        finput =fopen(file_path, "r");
-        if(finput == NULL)
-        {
-            char errmsg[50];
-            sprintf(errmsg, "Error %d: %s\n%s", ENOFILE, file_path, strerror(ENOFILE));
-            ErrorDialogue("File error", errmsg, 0);
-            exit(-1);
-        }
-        ftemp = fopen("Strip_temp.txt", "w");
-    }
-    else if(strstr(file_path, ".bin") != 0)
-    {
-        finput = fopen(file_path, "rb");
-        if(finput == NULL)
-        {
-            char errmsg[50];
-            sprintf(errmsg, "Error %d: %s\n%s", ENOFILE, file_path, strerror(ENOFILE));
-            ErrorDialogue("File error", errmsg, 0);
-            exit(-1);
-        }
-        ftemp = fopen("Strip_temp.bin", "wb");
-    }
-    else
-    {
-        char errmsg[50];
-        sprintf(errmsg, "Unknown file extension: %s", file_path);
+        char errmsg[100];
+        sprintf(errmsg, "Error %d: %s\n%s", ENOFILE, file_path, strerror(ENOFILE));
         ErrorDialogue("File error", errmsg, 0);
-        return -1;
+        exit(-1);
     }
+    ftemp = fopen(".\\Strip_temp.bin", "wb");
     if(ftemp == NULL)
     {
-        char errmsg[50];
-        sprintf(errmsg, "Error %d: %s\n%s", ENOFILE, "", strerror(ENOFILE));
+        char errmsg[100];
+        sprintf(errmsg, "Error %d: %s\n%s", ENOFILE, "Temp file", strerror(ENOFILE));
         ErrorDialogue("File error", errmsg, 0);
         fclose(finput);
         exit(-1);
     }
 
     int line_sz = 50;
-    char *line = calloc(line_sz, sizeof(char));
+    char *line = (char*) calloc(line_sz, sizeof(char));
+    char *realloc_temp;
     if(line == NULL)
     {
-        char errmsg[50];
+        char errmsg[100];
         sprintf(errmsg, "Error %d: %s", ENOMEM, strerror(ENOMEM));
         ErrorDialogue("Memory allocation error", errmsg, 0);
         fclose(finput);
@@ -118,7 +99,7 @@ int StripfromFile(char *file_path)
                 exit(-1);
             }
             line_sz *= 2;
-            if((realloc(line, line_sz) == NULL))
+            if((realloc_temp = (char*)realloc(line, line_sz)) == NULL)
             {
                 char errmsg[50];
                 sprintf(errmsg, "Error %d: %s", ENOMEM, strerror(ENOMEM));
@@ -128,59 +109,63 @@ int StripfromFile(char *file_path)
                 fclose(ftemp);
                 exit(-1);
             }
+            line = realloc_temp;
             fseek(finput, -strlen(line), SEEK_CUR);
             continue;
         }
-
-        if(strcmp(line, "\n") != STR_MATCH)
+        for(int c = 0; (line[c] != '\n' && line[c] != '\0'); c++)
         {
-            fputs(line, ftemp);
+            if(!isspace(line[c]))
+            {
+                if(line[strlen(line)-1] != '\n')
+                    strcat(line, "\n");
+                fputs(line, ftemp);
+                break;
+            }
         }
     }
     fclose(finput);
     fclose(ftemp);
-    if(strstr(file_path, ".txt") != 0)
+
+    finput = fopen(file_path, "w");
+    if(finput == NULL)
     {
-        finput = fopen(file_path, "w");
-        ftemp = fopen(".\\Strip_temp.txt", "r");
-    }
-    else
-    {
-        finput = fopen(file_path, "wb");
-        ftemp = fopen(".\\Strip_temp.bin", "rb");
-    }
-    if(finput == NULL || ftemp == NULL)
-    {
-        char errmsg[50];
-        sprintf(errmsg, "Error %d: Error in file.\n%s", errno, strerror(errno));
+        char errmsg[100];
+        sprintf(errmsg, "Error %d: %s\n%s", ENOFILE, file_path, strerror(ENOFILE));
         ErrorDialogue("File error", errmsg, 0);
-        free(line);
+        exit(-1);
+    }
+    ftemp = fopen(".\\Strip_temp.bin", "rb");
+    if(ftemp == NULL)
+    {
+        char errmsg[100];
+        sprintf(errmsg, "Error %d: %s\n%s", ENOFILE, "Temp file", strerror(ENOFILE));
+        ErrorDialogue("File error", errmsg, 0);
+        fclose(finput);
         exit(-1);
     }
     while(fgets(line, line_sz, ftemp))
     {
         fputs(line, finput);
     }
-
     free(line);
     fclose(ftemp);
     fclose(finput);
+
+    remove(".\\Strip_temp.bin");
     return 0;
 }
 
 
 int StrInput(char *input_string, char *msg, int sz)
 {
-
-    int len = 0, err = 0;
+    int len, err = 0;
     fflush(stdin);
-
     while(1)
     {
         int c;
         len = 0;
         printf("%s", msg);
-
         while((c = getchar()) != '\n')
         {
             if(c == EOF)
@@ -277,6 +262,8 @@ char* PhoneInput(char *msg)
                 strcpy(input_string, "N/A");
                 return input_string;
             }
+            else
+                continue;
         }
         else
             break;

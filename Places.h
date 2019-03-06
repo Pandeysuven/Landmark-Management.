@@ -19,10 +19,7 @@ typedef struct _LANDMARK
 /*
 	if (temp == NULL)
 	{
-char errmsg[50];
-sprintf(errmsg, "Error %d: %s", ENOMEM, strerror(ENOMEM));
-ErrorDialogue("Memory allocation error", errmsg, 0);
-exit(-1);
+
 	}
 
 	if ( fptr == NULL )

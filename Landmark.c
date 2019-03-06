@@ -1,10 +1,11 @@
+#include "Functions.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <inttypes.h>
-#include "Functions.h"
 #include "Places.h"
 #include <limits.h>
+
 
 int AddLandmark(char *file_location, int area, int lmark_type)
 {
@@ -31,7 +32,10 @@ int AddLandmark(char *file_location, int area, int lmark_type)
     }
     fflush(stdin);
     FILE *fp_search;
-    if(search_by_name(lmark.name, lmark_type) == FOUND)
+    int search_result = search_by_name(lmark.name, lmark_type);
+    if(search_result == -1)
+        return -1;
+    else if(search_result == FOUND)
     {
         fp_search = fopen(".\\Temp\\search_result.bin", "rb");
         if(fp_search == NULL)
@@ -54,10 +58,9 @@ int AddLandmark(char *file_location, int area, int lmark_type)
             else
             {
                 sz *= 2;
-                void *tmp_realloc;
+                char *tmp_realloc;
                 if((tmp_realloc = (char*) realloc(landmarks, sz*sizeof(char))) == NULL)
                 {
-                    free(tmp_realloc);
                     free(landmarks);
                     fclose(fp_search);
                     char errmsg[50];
@@ -67,10 +70,9 @@ int AddLandmark(char *file_location, int area, int lmark_type)
                 }
                 landmarks = tmp_realloc;
                 fseek(fp_search, -sizeof(LANDMARK), SEEK_CUR);
-                free(tmp_realloc);
             }
         }
-        char err_msg[110 + strlen(landmarks)];
+        char err_msg[110 + 200];
         int msgbox_return;
 
         sprintf(err_msg, "Following landmarks with partial match for \"%s\" already exists.\n%s Do you want to add another landmark with similar name?", lmark.name, landmarks);
@@ -112,7 +114,7 @@ int AddLandmark(char *file_location, int area, int lmark_type)
     fp_search = fopen(".\\Temp\\search_result.bin", "rb");
     while(fread(&lmark_b, sizeof(lmark_b), 1, fp_search))
     {
-        if(strstr(lmark_b.address, lmark.address) != 0 && search_by_name(lmark.name, lmark_type) == FOUND)
+        if(strcmpi(lmark_b.address, lmark.address) != 0 && search_by_name(lmark.name, lmark_type) == FOUND)
         {
             ErrorDialogue(0, "Cannot have two landmarks with same name and address.", 0);
             fclose(fptr);
@@ -210,9 +212,12 @@ int DeleteLandmark(char *file_path, char *lmark_name)
     while(!feof(ftemp))
     {
         int fread_rtn = fread(plmark, sizeof(lmark), 1, ftemp);
-        if(fread_rtn != 1 && !feof(ftemp))
+        if(fread_rtn != 1)
         {
-            ErrorDialogue("Read error", "Landmark not read by DeleteLandmark( )", 0);
+            if(!feof(ftemp))
+                ErrorDialogue("Read error", "Landmark not read by DeleteLandmark( )", 0);
+            else
+                break;
         }
         else if(strcmpi(lmark.name, lmark_name))
         {

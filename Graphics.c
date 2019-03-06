@@ -2,9 +2,11 @@
 	//Graphic.c
 	//Contains graphics functions such as moving cursor to coordinates, creating table
 */
+#include "Functions.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "Functions.h"
+
+
 
 #define COLOR_CYAN 9
 

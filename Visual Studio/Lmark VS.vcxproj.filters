@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\functions.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Graphics.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Landmark type.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Landmark.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Menu_Selection.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modify_records.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\search_by_area.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\search_by_name.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\setup.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Places.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\setup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cov-int\emit\desktop-27s86cr\config\31d22fc5b86079185f3783f27ee64058\g++-config-0\coverity-compiler-compat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cov-int\emit\desktop-27s86cr\config\31d22fc5b86079185f3783f27ee64058\g++-config-0\coverity-macro-compat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cov-int\emit\desktop-27s86cr\config\31d22fc5b86079185f3783f27ee64058\g++-config-1\coverity-compiler-compat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cov-int\emit\desktop-27s86cr\config\31d22fc5b86079185f3783f27ee64058\g++-config-1\coverity-macro-compat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cov-int\emit\desktop-27s86cr\config\31d22fc5b86079185f3783f27ee64058\g++cc-config-0\coverity-compiler-compat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cov-int\emit\desktop-27s86cr\config\31d22fc5b86079185f3783f27ee64058\g++cc-config-0\coverity-macro-compat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cov-int\emit\desktop-27s86cr\config\31d22fc5b86079185f3783f27ee64058\g++cc-config-1\coverity-compiler-compat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cov-int\emit\desktop-27s86cr\config\31d22fc5b86079185f3783f27ee64058\g++cc-config-1\coverity-macro-compat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cov-int\emit\desktop-27s86cr\config\31d22fc5b86079185f3783f27ee64058\gcc-config-0\coverity-compiler-compat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cov-int\emit\desktop-27s86cr\config\31d22fc5b86079185f3783f27ee64058\gcc-config-0\coverity-macro-compat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\data\area1\a.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area1\b.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area1\c.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area1\Cinema.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area1\d.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area1\e.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area1\f.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area1\g.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area1\h.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area1\Hospital.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area1\i.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area1\j.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area1\k.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area1\l.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area1\m.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area1\Mall.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area1\Restaurant.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area1\School.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area2\a.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area2\b.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area2\c.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area2\Cinema.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area2\d.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area2\e.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area2\f.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area2\g.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area2\h.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area2\Hospital.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area2\i.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area2\j.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area2\k.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area2\l.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area2\m.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area2\Mall.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area2\Restaurant.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area2\School.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area3\a.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area3\b.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area3\c.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area3\Cinema.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area3\d.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area3\e.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area3\f.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area3\g.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area3\h.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area3\Hospital.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area3\i.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area3\j.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area3\k.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area3\l.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area3\m.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area3\Mall.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area3\Restaurant.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area3\School.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area4\a.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area4\b.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area4\c.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area4\Cinema.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area4\d.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area4\e.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area4\f.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area4\g.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area4\h.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area4\Hospital.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area4\i.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area4\j.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area4\k.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area4\l.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area4\m.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area4\Mall.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area4\Restaurant.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area4\School.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area5\a.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area5\b.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area5\c.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area5\Cinema.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area5\d.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area5\e.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area5\f.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area5\g.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area5\h.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area5\Hospital.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area5\i.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area5\j.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area5\k.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area5\l.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area5\m.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area5\Mall.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area5\Restaurant.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\data\area5\School.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\temp\search_result.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

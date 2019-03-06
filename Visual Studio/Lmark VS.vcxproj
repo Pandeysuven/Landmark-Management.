@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{76AA8419-4666-406C-A82F-5B9F018F191C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\functions.c" />
+    <ClCompile Include="..\Graphics.c" />
+    <ClCompile Include="..\Landmark type.c" />
+    <ClCompile Include="..\Landmark.c" />
+    <ClCompile Include="..\main.c" />
+    <ClCompile Include="..\Menu_Selection.c" />
+    <ClCompile Include="..\modify_records.c" />
+    <ClCompile Include="..\search_by_area.c" />
+    <ClCompile Include="..\search_by_name.c" />
+    <ClCompile Include="..\setup.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\cov-int\emit\desktop-27s86cr\config\31d22fc5b86079185f3783f27ee64058\g++-config-0\coverity-compiler-compat.h" />
+    <ClInclude Include="..\cov-int\emit\desktop-27s86cr\config\31d22fc5b86079185f3783f27ee64058\g++-config-0\coverity-macro-compat.h" />
+    <ClInclude Include="..\cov-int\emit\desktop-27s86cr\config\31d22fc5b86079185f3783f27ee64058\g++-config-1\coverity-compiler-compat.h" />
+    <ClInclude Include="..\cov-int\emit\desktop-27s86cr\config\31d22fc5b86079185f3783f27ee64058\g++-config-1\coverity-macro-compat.h" />
+    <ClInclude Include="..\cov-int\emit\desktop-27s86cr\config\31d22fc5b86079185f3783f27ee64058\g++cc-config-0\coverity-compiler-compat.h" />
+    <ClInclude Include="..\cov-int\emit\desktop-27s86cr\config\31d22fc5b86079185f3783f27ee64058\g++cc-config-0\coverity-macro-compat.h" />
+    <ClInclude Include="..\cov-int\emit\desktop-27s86cr\config\31d22fc5b86079185f3783f27ee64058\g++cc-config-1\coverity-compiler-compat.h" />
+    <ClInclude Include="..\cov-int\emit\desktop-27s86cr\config\31d22fc5b86079185f3783f27ee64058\g++cc-config-1\coverity-macro-compat.h" />
+    <ClInclude Include="..\cov-int\emit\desktop-27s86cr\config\31d22fc5b86079185f3783f27ee64058\gcc-config-0\coverity-compiler-compat.h" />
+    <ClInclude Include="..\cov-int\emit\desktop-27s86cr\config\31d22fc5b86079185f3783f27ee64058\gcc-config-0\coverity-macro-compat.h" />
+    <ClInclude Include="..\Functions.h" />
+    <ClInclude Include="..\Places.h" />
+    <ClInclude Include="..\setup.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\data\area1\a.bin" />
+    <None Include="..\data\area1\b.bin" />
+    <None Include="..\data\area1\c.bin" />
+    <None Include="..\data\area1\Cinema.bin" />
+    <None Include="..\data\area1\d.bin" />
+    <None Include="..\data\area1\e.bin" />
+    <None Include="..\data\area1\f.bin" />
+    <None Include="..\data\area1\g.bin" />
+    <None Include="..\data\area1\h.bin" />
+    <None Include="..\data\area1\Hospital.bin" />
+    <None Include="..\data\area1\i.bin" />
+    <None Include="..\data\area1\j.bin" />
+    <None Include="..\data\area1\k.bin" />
+    <None Include="..\data\area1\l.bin" />
+    <None Include="..\data\area1\m.bin" />
+    <None Include="..\data\area1\Mall.bin" />
+    <None Include="..\data\area1\Restaurant.bin" />
+    <None Include="..\data\area1\School.bin" />
+    <None Include="..\data\area2\a.bin" />
+    <None Include="..\data\area2\b.bin" />
+    <None Include="..\data\area2\c.bin" />
+    <None Include="..\data\area2\Cinema.bin" />
+    <None Include="..\data\area2\d.bin" />
+    <None Include="..\data\area2\e.bin" />
+    <None Include="..\data\area2\f.bin" />
+    <None Include="..\data\area2\g.bin" />
+    <None Include="..\data\area2\h.bin" />
+    <None Include="..\data\area2\Hospital.bin" />
+    <None Include="..\data\area2\i.bin" />
+    <None Include="..\data\area2\j.bin" />
+    <None Include="..\data\area2\k.bin" />
+    <None Include="..\data\area2\l.bin" />
+    <None Include="..\data\area2\m.bin" />
+    <None Include="..\data\area2\Mall.bin" />
+    <None Include="..\data\area2\Restaurant.bin" />
+    <None Include="..\data\area2\School.bin" />
+    <None Include="..\data\area3\a.bin" />
+    <None Include="..\data\area3\b.bin" />
+    <None Include="..\data\area3\c.bin" />
+    <None Include="..\data\area3\Cinema.bin" />
+    <None Include="..\data\area3\d.bin" />
+    <None Include="..\data\area3\e.bin" />
+    <None Include="..\data\area3\f.bin" />
+    <None Include="..\data\area3\g.bin" />
+    <None Include="..\data\area3\h.bin" />
+    <None Include="..\data\area3\Hospital.bin" />
+    <None Include="..\data\area3\i.bin" />
+    <None Include="..\data\area3\j.bin" />
+    <None Include="..\data\area3\k.bin" />
+    <None Include="..\data\area3\l.bin" />
+    <None Include="..\data\area3\m.bin" />
+    <None Include="..\data\area3\Mall.bin" />
+    <None Include="..\data\area3\Restaurant.bin" />
+    <None Include="..\data\area3\School.bin" />
+    <None Include="..\data\area4\a.bin" />
+    <None Include="..\data\area4\b.bin" />
+    <None Include="..\data\area4\c.bin" />
+    <None Include="..\data\area4\Cinema.bin" />
+    <None Include="..\data\area4\d.bin" />
+    <None Include="..\data\area4\e.bin" />
+    <None Include="..\data\area4\f.bin" />
+    <None Include="..\data\area4\g.bin" />
+    <None Include="..\data\area4\h.bin" />
+    <None Include="..\data\area4\Hospital.bin" />
+    <None Include="..\data\area4\i.bin" />
+    <None Include="..\data\area4\j.bin" />
+    <None Include="..\data\area4\k.bin" />
+    <None Include="..\data\area4\l.bin" />
+    <None Include="..\data\area4\m.bin" />
+    <None Include="..\data\area4\Mall.bin" />
+    <None Include="..\data\area4\Restaurant.bin" />
+    <None Include="..\data\area4\School.bin" />
+    <None Include="..\data\area5\a.bin" />
+    <None Include="..\data\area5\b.bin" />
+    <None Include="..\data\area5\c.bin" />
+    <None Include="..\data\area5\Cinema.bin" />
+    <None Include="..\data\area5\d.bin" />
+    <None Include="..\data\area5\e.bin" />
+    <None Include="..\data\area5\f.bin" />
+    <None Include="..\data\area5\g.bin" />
+    <None Include="..\data\area5\h.bin" />
+    <None Include="..\data\area5\Hospital.bin" />
+    <None Include="..\data\area5\i.bin" />
+    <None Include="..\data\area5\j.bin" />
+    <None Include="..\data\area5\k.bin" />
+    <None Include="..\data\area5\l.bin" />
+    <None Include="..\data\area5\m.bin" />
+    <None Include="..\data\area5\Mall.bin" />
+    <None Include="..\data\area5\Restaurant.bin" />
+    <None Include="..\data\area5\School.bin" />
+    <None Include="..\temp\search_result.bin" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

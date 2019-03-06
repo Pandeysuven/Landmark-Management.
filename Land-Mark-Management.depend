@@ -1,146 +1,67 @@
 # depslib dependency file v1.0
-1551323383 source:c:\users\pande\onedrive\documents\github\landmark-management\main.c
-	"setup.h"
+1551756989 source:d:\landmark-management\graphics.c
 	"Functions.h"
-	<inttypes.h>
-
-1550944094 c:\users\pande\onedrive\documents\github\landmark-management\setup.h
-
-1551323406 c:\users\pande\onedrive\documents\github\landmark-management\functions.h
-	<string.h>
-	<stdio.h>
-	<windows.h>
-	<stdlib.h>
-	<conio.h>
-	<wincon.h>
-	"Places.h"
-
-1551147999 c:\users\pande\onedrive\documents\github\landmark-management\places.h
-
-1551104069 source:c:\users\pande\onedrive\documents\github\landmark-management\menu_selection.c
-	"Functions.h"
-
-1551323722 source:c:\users\pande\onedrive\documents\github\landmark-management\modify_records.c
-	"Functions.h"
-	"Places.h"
-
-1549933972 source:c:\users\pande\onedrive\documents\github\landmark-management\functions.c
-	<stdio.h>
-
-1550940667 source:c:\users\pande\onedrive\documents\github\landmark-management\search_by_area.c
-	<stdio.h>
-	"Functions.h"
-
-1551323695 source:c:\users\pande\onedrive\documents\github\landmark-management\search_by_name.c
-	<stdio.h>
-	"Functions.h"
-
-1551149586 source:c:\users\pande\onedrive\documents\github\landmark-management\setup.c
-	<stdio.h>
-	<string.h>
-	<stdlib.h>
-	"setup.h"
-	"Functions.h"
-	<limits.h>
-	<ctype.h>
-
-1551176135 source:c:\users\pande\onedrive\documents\github\landmark-management\places.c
-	"Functions.h"
-	"Places.h"
-
-1551322470 source:c:\users\pande\onedrive\documents\github\landmark-management\graphics.c
 	<stdio.h>
 	<stdlib.h>
-	<windows.h>
 
-1551322866 source:c:\users\pande\onedrive\documents\github\landmark-management\landmarks.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	"Functions.h"
-
-1551543722 source:d:\landmark-management\graphics.c
-	<stdio.h>
-	<stdlib.h>
-	"Functions.h"
-
-1551634324 source:d:\landmark-management\search_by_area.c
-	<stdio.h>
-	"Functions.h"
-
-1551574984 d:\landmark-management\functions.h
+1551762823 d:\landmark-management\functions.h
 	<windows.h>
 	"Places.h"
 	<errno.h>
+	<conio.h>
 
 1551671440 d:\landmark-management\places.h
 
-1551357921 source:d:\landmark-management\landmarks.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	"Functions.h"
-
-1551630684 source:d:\landmark-management\main.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<conio.h>
-	"Functions.h"
-
-1551356943 d:\landmark-management\setup.h
-
-1551623310 source:d:\landmark-management\menu_selection.c
+1551759174 source:d:\landmark-management\landmark type.c
 	"Functions.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
-	<conio.h>
 
-1551671411 source:d:\landmark-management\modify_records.c
+1551758547 source:d:\landmark-management\landmark.c
+	"Functions.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<inttypes.h>
+	"Places.h"
+	<limits.h>
+
+1551758284 source:d:\landmark-management\main.c
+	"Functions.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<conio.h>
-	"Functions.h"
 
-1551632547 source:d:\landmark-management\search_by_name.c
+1551758292 source:d:\landmark-management\menu_selection.c
+	"Functions.h"
 	<stdio.h>
 	<stdlib.h>
-	<windows.h>
 	<string.h>
+	<conio.h>
+
+1551759982 source:d:\landmark-management\modify_records.c
 	"Functions.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1551758328 source:d:\landmark-management\search_by_area.c
+	"Functions.h"
+	<stdio.h>
+
+1551758342 source:d:\landmark-management\search_by_name.c
+	"Functions.h"
+	<stdio.h>
+	<string.h>
 	"Places.h"
 
-1551632850 source:d:\landmark-management\setup.c
+1551758358 source:d:\landmark-management\setup.c
+	"Functions.h"
 	<stdio.h>
 	<stdlib.h>
 	<windows.h>
-	"Functions.h"
 	<ctype.h>
-	<limits.h>
-
-1551358927 source:d:\landmark-management\places.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<inttypes.h>
-	"Functions.h"
-	"Places.h"
-	<limits.h>
-
-1551621300 source:d:\landmark-management\landmark type.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	"Functions.h"
-
-1551671431 source:d:\landmark-management\landmark.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<inttypes.h>
-	"Functions.h"
-	"Places.h"
 	<limits.h>
 

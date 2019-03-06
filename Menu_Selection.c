@@ -7,9 +7,9 @@
 int GetMenuSelection(char *heading, char (*options)[50], int num_options)
 {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    int selected_option = 1;          //input saves input selected option saves option 1,2 or 3
-    int x = -12, y = ((-(num_options / 2)));                       //deviation from middle of screen
-    if(num_options > 99 || num_options < 1)
+    int selected_option = 1;
+    int x = -12, y = ((-(num_options / 2)));
+    if(num_options > OPTION_LIMIT || num_options < 1)
     {
         char errmsg[50];
         sprintf(errmsg, "Error %d: %s\n%s to GetMenuSelection( ) .", EINVAL, heading, strerror(EINVAL));
@@ -24,15 +24,14 @@ int GetMenuSelection(char *heading, char (*options)[50], int num_options)
     printf("%s", heading);
     SetConsoleTextAttribute(hConsole, WHITE);
 
+    for(int i = 0; i < num_options; i++)
     {
-        for(int i = 0; i < num_options; i++)
-        {
-            GoToMiddle(x, y + i);
-            printf("%2d. %s", i + 1, *(options + i));
-        }
-        GoToMiddle(x - 2, y + num_options + 1);
-        printf("Choose one of the above: ");
+        GoToMiddle(x, y + i);
+        printf("%2d. %s", i + 1, *(options + i));
     }
+    GoToMiddle(x - 2, y + num_options + 1);
+    printf("Choose one of the above: ");
+
 
     //Sets console attribute to highlighted, moves cursor to option 1 and reprints option
     SetConsoleTextAttribute(hConsole, HIGHLIGHTED);
@@ -62,10 +61,10 @@ int GetMenuSelection(char *heading, char (*options)[50], int num_options)
             system("cls");
             return '\b';
         }
-        else if(input == 27)
+        else if(input == KEY_ESC)
         {
             system("cls");
-            return 0;
+            return RTN_ESC;
         }
         else if(input >= 48 && input <= 57)
         {
@@ -157,13 +156,8 @@ int GetMenuSelection(char *heading, char (*options)[50], int num_options)
             printf("%2d. %s", selected_option, *(options + selected_option - 1));
             GoToMiddle(x + 23, y + num_options + 1);
             break;
-
-
-
-
         }
+        fflush(stdin);
     }
-
-    fflush(stdin);
     return selected_option;
 }

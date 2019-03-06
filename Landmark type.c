@@ -2,10 +2,11 @@
 	//functions.c
 	//contains functions to modify landmark details
 */
+#include "Functions.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Functions.h"
+
 
 int CreateLandmarkType(char *name)
 {
@@ -99,7 +100,15 @@ char* GetLandmarkType(int sn)
 
                 fseek(fptr, -strlen(temp), SEEK_CUR);
                 sz += 10;
-                realloc(temp, sz);
+				char *tmp_realloc;
+				if ((tmp_realloc = realloc(temp, sz)) == NULL)
+				{
+					char errmsg[50];
+						sprintf(errmsg, "Error %d: %s", ENOMEM, strerror(ENOMEM));
+						ErrorDialogue("Memory allocation error", errmsg, 0);
+						exit(-1);
+				}
+				temp = tmp_realloc;
                 continue;
             }
             else
@@ -110,7 +119,7 @@ char* GetLandmarkType(int sn)
             fclose(fptr);
             if(temp[strlen(temp)-1] == '\n')
                 temp[strlen(temp)-1] = '\0';
-            if(strcmp(temp, "") == STR_MATCH)
+            if(!strcmp(temp, ""))
             {
                 free(temp);
                 return "";
@@ -168,7 +177,7 @@ int SearchLandmarkType(char* input)
             return EOF;
         }
 
-        if(strcmpi(input_name, temp) == 0)
+        if(!strcmpi(input_name, temp))
         {
             free(input_name);
             free(temp);
@@ -233,7 +242,15 @@ char* GetAreaName(int sn)
 
                 fseek(fptr, -strlen(temp), SEEK_CUR);
                 sz += 10;
-                realloc(temp, sz);
+				char *tmp_realloc;
+				if ((tmp_realloc = realloc(temp, sz)) == NULL)
+				{
+					char errmsg[50];
+						sprintf(errmsg, "Error %d: %s", ENOMEM, strerror(ENOMEM));
+						ErrorDialogue("Memory allocation error", errmsg, 0);
+						exit(-1);
+				}
+				temp = tmp_realloc;
                 continue;
             }
             else

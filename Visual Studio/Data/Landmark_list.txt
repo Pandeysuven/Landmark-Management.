@@ -1,0 +1,12 @@
+Hospital
+Mall
+School
+Restaurant
+Cinema
+a
+b
+c
+d
+e
+f
+g

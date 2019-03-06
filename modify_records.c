@@ -1,8 +1,8 @@
+#include "Functions.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <conio.h>
-#include "Functions.h"
+
 
 int modify_records()
 {
@@ -45,7 +45,7 @@ int modify_records()
             strcpy(options[num_options++], area);
         }
         selected_area = GetMenuSelection("Select Area", options, num_options);
-        if(selected_area == 0 || selected_area == '\b')
+        if(selected_area == 0 || selected_area == '\b' || selected_area == RTN_ESC)
         {
             free(inputString);
             return 0;
@@ -61,7 +61,7 @@ int modify_records()
             }
             selected_landmark = GetMenuSelection("Select Landmark Type", options, num_options);
 
-            if(selected_landmark == 0 || selected_landmark == 'b')
+            if(selected_landmark == 0 || selected_landmark == 'b' || selected_landmark == RTN_ESC)
                 return 0;
         }
         system("cls");
@@ -86,7 +86,7 @@ int modify_records()
         system("cls");
         char   options[][50] = {"Edit existing landmark\n", "Delete landmark"};
         int selected_edit_option = GetMenuSelection("Edit Landmark", options, 2);
-        if(selected_edit_option == 0 || selected_edit_option == '\b')
+        if(selected_edit_option == 0 || selected_edit_option == '\b' || selected_edit_option == RTN_ESC)
             break;
         //system("cls");
         if(StrInput(inputString, "Enter landmark name: ", 50) == EOF)
@@ -111,11 +111,14 @@ int modify_records()
                 {
                     strcpy(options[num_options++], lmark.name);
                 }
+				fclose(fp_search);
             }
         }
         system("cls");
         int selected_landmark = GetMenuSelection("Select landmark to be edited", options, num_options);
-        fseek(fp_search, 0, SEEK_SET);
+        if(selected_landmark == 0 || selected_landmark == '\b' || selected_landmark == RTN_ESC)
+            break;
+		fp_search = fopen(".\\Temp\\search_result.bin", "rb");
         for(int k = 0; k < selected_landmark; k++)
         {
             fread(&lmark, sizeof(LANDMARK), 1, fp_search);

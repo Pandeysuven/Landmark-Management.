@@ -1,6 +1,8 @@
-#include <stdio.h>
 #include "Functions.h"
+#include <stdio.h>
 #define OPTION_NEXT 0
+
+
 int search_by_area()
 {
     int j = 1, num_options = 0, selected_area, num_areas = 0, num_lmark_type = 0;
@@ -9,7 +11,7 @@ int search_by_area()
     j = 1;
     while(strcmp(GetLandmarkType(j++), "") != STR_MATCH)
         num_lmark_type++;
-    char options[num_areas+2][50];
+    char options[NUM_AREAS+2][50];
     LANDMARK lmark;
 
     for(j = 1; strcmp(GetAreaName(j), "") != STR_MATCH; j++)      //Sets area name to array of options
@@ -19,6 +21,8 @@ int search_by_area()
         strcpy(options[num_options++], area);
     }
     selected_area = GetMenuSelection("Select area", options, num_options);
+    if(selected_area == 0 || selected_area == '\b' || selected_area == RTN_ESC)
+        return 1;
 
     for(j = 1; strcmp(GetLandmarkType(j), "") != STR_MATCH; j++)      //List of landmark in options[]
     {
@@ -48,12 +52,24 @@ int search_by_area()
             strcpy(options[num_options++], "Previous");
         }
         selected_lmark = GetMenuSelection(GetLandmarkType(j), options, num_options);
-        if(selected_lmark == 1 && j != num_lmark_type)
+
+        if(selected_lmark == 1 && j != num_lmark_type)   //if next is selected
             continue;
-        else if(selected_lmark == '\b' || (selected_lmark == num_options && j > 1))
+		else if ( (selected_lmark == num_options && j > 1) )
+		{
+				j -= 2;
+			continue;
+		}
+        else if(selected_lmark == '\b')
         {
+			if (j == 1)
+				return 1;
             j -= 2;
             continue;
+        }
+        else if(selected_lmark == RTN_ESC || selected_lmark == 0)
+        {
+            return 1;
         }
         if(j != num_lmark_type)
         {
