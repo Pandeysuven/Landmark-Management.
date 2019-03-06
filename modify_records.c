@@ -61,7 +61,7 @@ int modify_records()
             }
             selected_landmark = GetMenuSelection("Select Landmark Type", options, num_options);
 
-            if(selected_landmark == 0 || selected_landmark == 'b' || selected_landmark == RTN_ESC)
+            if(selected_landmark == 0 || selected_landmark == '\b' || selected_landmark == RTN_ESC)
                 return 0;
         }
         system("cls");
