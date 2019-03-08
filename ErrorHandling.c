@@ -4,7 +4,7 @@
 void DisplayMemoryAllocationError()
 {
 	char errmsg[50];
-	sprintf(errmsg, "Error %d: %s", errno, strerror(errno));
+	sprintf(errmsg, "Error %d: %s", ENOMEM, strerror(ENOMEM));
 	MessageBox(NULL, errmsg, "Memory Allocation", MB_OK | MB_ICONEXCLAMATION);
 
 }

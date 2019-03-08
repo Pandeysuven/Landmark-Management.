@@ -57,6 +57,7 @@ char* GetLandmarkType(int sn);
 int SearchLandmarkType(char* inputname);
 
 int GetMenuSelection(char *heading, char (*options)[50], int num_options);
+int GetMenuSelectionDouble(char *heading, char**options, int num_options);
 
 int search_by_area();
 int search_by_name(char *name, int lmark_type);
