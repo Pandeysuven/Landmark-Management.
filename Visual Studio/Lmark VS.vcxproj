@@ -99,6 +99,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\ErrorHandling.c" />
     <ClCompile Include="..\functions.c" />
     <ClCompile Include="..\Graphics.c" />
     <ClCompile Include="..\Landmark type.c" />

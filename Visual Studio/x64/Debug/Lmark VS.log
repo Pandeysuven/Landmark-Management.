@@ -1,1 +1,4 @@
-﻿  Lmark VS.vcxproj -> D:\Landmark-Management\Visual Studio\x64\Debug\Lmark VS.exe
+﻿  main.c
+d:\landmark-management\main.c(18): warning C4047: 'function': 'char (*)[50]' differs in levels of indirection from 'char **'
+d:\landmark-management\main.c(18): warning C4024: 'GetMenuSelection': different types for formal and actual parameter 2
+  Lmark VS.vcxproj -> D:\Landmark-Management\Visual Studio\x64\Debug\Lmark VS.exe

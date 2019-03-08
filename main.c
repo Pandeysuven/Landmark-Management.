@@ -5,6 +5,17 @@
 
 int main()
 {
+	char a[100] = "Apple";
+
+	char **options2 = (char**) calloc(50, sizeof(char*));
+	for (int l = 0; l < 50; l++)
+	{
+		options2[l] = (char*) calloc(100, sizeof(char));
+	}
+	strcpy(options2[0], "a1");
+	strcpy(options2[1], "b2");
+	strcpy(options2[2], "c3");
+	int jpt = GetMenuSelection("Test", options2, 3);
 	setup();     //checks for folder, sets title
 
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
