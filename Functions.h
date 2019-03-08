@@ -41,7 +41,7 @@ extern char** MENU_OPTIONS_G;
 #endif
 
 //#define strcmpi _strcmpi
-#define strcmpi strcmp
+//#define strcmpi strcmp
 #define getch _getch
 #define getche _getche
 
@@ -56,7 +56,7 @@ char* GetAreaName(int sn);
 char* GetLandmarkType(int sn);
 int SearchLandmarkType(char* inputname);
 
-int GetMenuSelection(char *heading, char **options, int num_options);
+int GetMenuSelection(char *heading, char (*options)[50], int num_options);
 
 int search_by_area();
 int search_by_name(char *name, int lmark_type);

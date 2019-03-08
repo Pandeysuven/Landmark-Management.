@@ -3,8 +3,9 @@
 	//contains functions to modify landmark details
 */
 #include "Functions.h"
-
+#include <strings.h>
 #include <string.h>
+
 
 int CreateLandmarkType(char *name)
 {

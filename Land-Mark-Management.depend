@@ -3,13 +3,14 @@
 	"Functions.h"
 	<stdio.h>
 
-1552009003 d:\landmark-management\functions.h
+1552010893 d:\landmark-management\functions.h
 	<windows.h>
 	"Places.h"
 	<stdio.h>
 	<stdlib.h>
 	<errno.h>
 	<conio.h>
+	<string.h>
 
 1551785819 d:\landmark-management\places.h
 
@@ -62,7 +63,7 @@
 	<windows.h>
 	<ctype.h>
 
-1552004717 source:d:\landmark-management\errorhandling.c
+1552010273 source:d:\landmark-management\errorhandling.c
 	"Functions.h"
 	<stdio.h>
 
