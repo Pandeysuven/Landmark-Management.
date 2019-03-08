@@ -1,16 +1,18 @@
-#define _CRT_SECURE_NO_WARNINGS
-#pragma comment(lib,"User32.lib")
-
-extern int NUM_AREA_G;
-extern int NUM_LANDMARK_TYPE_G;
-
 #ifndef FUNCTION_H
 #define FUNCTION_H
 
+#define _CRT_SECURE_NO_WARNINGS
+extern int NUM_AREA_G;
+extern int NUM_LANDMARK_TYPE_G;
+extern char** MENU_OPTIONS_G;
+
 #include <windows.h>
 #include "Places.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include <errno.h>
 #include <conio.h>
+#include <string.h>
 
 #define ARROW_UP 72
 #define ARROW_DOWN 80
@@ -29,14 +31,17 @@ extern int NUM_LANDMARK_TYPE_G;
 #define STR_MATCH 0
 #define MATCH_FOUND 0
 #define MATCH_NOT_FOUND 1
-#define OPTION_LIMIT 100
+#define OPTION_LIMIT 50
 #define KEY_ESC 27
 #define RTN_ESC (OPTION_LIMIT+KEY_ESC)
+#define MAXIMUM_INPUT_SIZE 500
 
 #ifndef ENOFILE
-#define ENOFILE ENOENT
+	#define ENOFILE ENOENT
 #endif
-#define strcmpi _strcmpi
+
+//#define strcmpi _strcmpi
+#define strcmpi strcmp
 #define getch _getch
 #define getche _getche
 
@@ -51,7 +56,7 @@ char* GetAreaName(int sn);
 char* GetLandmarkType(int sn);
 int SearchLandmarkType(char* inputname);
 
-int GetMenuSelection(char *heading, char (*options)[50], int num_options);
+int GetMenuSelection(char *heading, char **options, int num_options);
 
 int search_by_area();
 int search_by_name(char *name, int lmark_type);
@@ -67,4 +72,7 @@ int StrInput(char *_string, char *msg, int sz);
 int StripfromFile(char *file_path);
 char* PhoneInput(char *);
 int ErrorDialogue(char *heading, char *error, int type);
+
+void DisplayMemoryAllocationError();
+void DisplayFileError(char *file_name);
 #endif // FUNCTION_H
