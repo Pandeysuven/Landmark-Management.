@@ -5,28 +5,26 @@
 
 int main()
 {
+	setup();     //checks for folder, sets title
+
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     char options_main[][50] = {"Search by name", "Search by area", "Add/Modify records" };
-    char options[50][50];
+    char options[OPTION_LIMIT][50];
     LANDMARK lmark;
     int j = 1, num_options = 0,  selected_landmark;
     char *input_name = calloc(50, sizeof(char));
     if(input_name == NULL)
     {
-        char errmsg[50];
-        sprintf(errmsg, "Error %d: %s", errno, strerror(errno));
-        ErrorDialogue("Memory allocation error", errmsg, 0);
+		DisplayMemoryAllocationError();
         exit(-1);
     }
-    setup();     //checks for folder, sets title and maximizes output window
+
 
     while(1)
     {
         system("cls");
-
-        int MenuSelection = GetMenuSelection("Main Menu", options_main, 3);    //Displays menu and returns input
-        SetConsoleTextAttribute(hConsole, 7);
-        system("cls");
+        int MenuSelection = GetMenuSelection("Main Menu", options_main, 3);
+    	system("cls");
 
         if(MenuSelection == 0 || MenuSelection == '\b' || MenuSelection == RTN_ESC)
         {
@@ -38,7 +36,7 @@ int main()
         {
         case 1:
             num_options = 0;
-            for(j = 1; strcmp(GetLandmarkType(j), ""); j++)       //List of landmark in options[]
+            for(j = 1; j < NUM_LANDMARK_TYPE_G; j++)       //List of landmark in options[]
             {
                 if(num_options > 50)
                 {
@@ -61,11 +59,11 @@ int main()
 			fflush(stdin);
 			system("cls");
 		    int search_result;
-			if((search_result = search_by_name(input_name, selected_landmark)) == NOT_FOUND)
+			if( (search_result = search_by_name(input_name, selected_landmark)) == NOT_FOUND)
             {
 				printf("Cannot find landmark.\n");
             }
-            else if(search_result == -1)
+            else if(search_result == EOF)
             {
                 break;
             }

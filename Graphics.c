@@ -4,7 +4,6 @@
 */
 #include "Functions.h"
 #include <stdio.h>
-#include <stdlib.h>
 
 #define COLOR_CYAN 9
 
@@ -21,13 +20,10 @@ COORD GoToMiddle(int correctionX, int correctionY)
 {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     CONSOLE_SCREEN_BUFFER_INFO csbi;
-    int columns, rows;
     GetConsoleScreenBufferInfo(hConsole, &csbi);
-    columns = csbi.srWindow.Right - csbi.srWindow.Left + 1;
-    rows = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
-    COORD pos = {columns, rows};
-    GoToXY(columns / 2 + correctionX, rows / 2 + correctionY);
-    return pos;
+    COORD middle_position = { csbi.srWindow.Right - csbi.srWindow.Left + 1, csbi.srWindow.Bottom - csbi.srWindow.Top + 1 };
+    GoToXY(middle_position.X / 2 + correctionX, middle_position.Y / 2 + correctionY);
+    return middle_position;
 }
 
 
@@ -35,7 +31,7 @@ void CreateTable(int length, int breadth)
 {
     HANDLE stdHandle = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(stdHandle, COLOR_CYAN);
-    int l = length / 2, b = breadth / 2;
+    const int l = length / 2, b = breadth / 2;
     GoToMiddle(-(l), -(b));
     printf("%c", 218);                          //upper left
 

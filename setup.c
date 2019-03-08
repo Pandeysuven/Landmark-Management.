@@ -6,7 +6,6 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <ctype.h>
-#include <limits.h>
 
 int NUM_LANDMARK_TYPE_G;
 int NUM_AREA_G;
@@ -14,11 +13,8 @@ int NUM_AREA_G;
 void setup()
 {
     system("title Landmark Management System");
-    int lmark_types, areas;
-	lmark_types = StripfromFile(".\\Data\\Landmark_list.txt");
-	areas = StripfromFile(".\\Data\\Area_list.txt");
-	NUM_LANDMARK_TYPE_G = lmark_types;
-	NUM_AREA_G = areas;
+	NUM_LANDMARK_TYPE_G = StripfromFile(".\\Data\\Landmark_list.txt");
+	NUM_AREA_G = StripfromFile(".\\Data\\Area_list.txt");
 	CreateFolder();
     system("cls");
 }
@@ -27,17 +23,17 @@ int CreateFolder()
 {
     FILE *fptr;
 	system("IF NOT EXIST .\\Temp mkdir .\\Temp");
-    for(int i = 1; strcmp(GetAreaName(i), ""); i++)
+    for(int area_number = 1; area_number <= NUM_AREA_G; area_number++)
     {
         char mkdirs[70];
-        sprintf(mkdirs, "IF NOT EXIST .\\Data\\Area%d mkdir .\\Data\\Area%d", i, i);
+        sprintf(mkdirs, "IF NOT EXIST .\\Data\\Area%d mkdir .\\Data\\Area%d", area_number, area_number);
         system(mkdirs);
 
         char landmark_file[100];
-
-        for(int j = 1; !strcmp(GetLandmarkType(j), ""); j++)
+		int landmark_number;
+        for(landmark_number = 1; landmark_number < NUM_LANDMARK_TYPE_G; landmark_number++)
         {
-            sprintf(landmark_file, ".\\Data\\Area%d\\%s.bin", i, GetLandmarkType(j));
+            sprintf(landmark_file, ".\\Data\\Area%d\\%s.bin", area_number, GetLandmarkType(landmark_number));
             fptr = fopen(landmark_file, "rb");
             if(fptr == NULL)
             {
@@ -177,7 +173,7 @@ int StrInput(char *input_string, char *msg, int sz)
         while((c = getchar()) != '\n')
         {
             if(c == EOF)
-                return EOF;
+                return -1;
             if(isalpha(c) || isspace(c))
             {
                 if(len < sz - 1)

@@ -17,7 +17,7 @@ int search_by_name(char *input_name,  int lmark_type)
         return -1;
     }
 
-    for(j = 1; strcmp(GetAreaName(j), ""); j++)
+    for(j = 1; j <= NUM_AREA_G; j++)
     {
         FILE *fptr;
         char file[50];

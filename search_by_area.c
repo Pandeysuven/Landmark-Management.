@@ -6,15 +6,17 @@
 int search_by_area()
 {
     int j = 1, num_options = 0, selected_area, num_areas = 0, num_lmark_type = 0;
-    while(strcmp(GetAreaName(j++), "") != STR_MATCH)
-        num_areas++;
-    j = 1;
-    while(strcmp(GetLandmarkType(j++), "") != STR_MATCH)
-        num_lmark_type++;
-    char options[NUM_AREAS+2][50];
+    /*
+    char **options[50][50];
+	for (j = 0; j <= NUM_AREA_G+2; j++)
+	{
+		options[j] = (char*)calloc(50,sizeof(char));
+	}
+	*/
+	char options[50][50];
     LANDMARK lmark;
 
-    for(j = 1; strcmp(GetAreaName(j), "") != STR_MATCH; j++)      //Sets area name to array of options
+    for(j = 1; j <= NUM_AREA_G; j++)      //Sets area name to array of options
     {
         char area[50];
         strcpy(area, GetAreaName(j));
@@ -24,7 +26,7 @@ int search_by_area()
     if(selected_area == 0 || selected_area == '\b' || selected_area == RTN_ESC)
         return 1;
 
-    for(j = 1; strcmp(GetLandmarkType(j), "") != STR_MATCH; j++)      //List of landmark in options[]
+    for(j = 1; j < NUM_LANDMARK_TYPE_G; j++)      //List of landmark in options[]
     {
         FILE *fpfile;
         char file[50];

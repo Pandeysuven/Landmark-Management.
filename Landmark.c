@@ -11,47 +11,43 @@ int AddLandmark(char *file_location, int area, int lmark_type)
     FILE *fptr = fopen(file_location, "rb");
     if(fptr == NULL)
     {
-        char errmsg[50];
-        sprintf(errmsg, "Error %d: Error in %s.\n%s", ENOFILE, file_location, strerror(ENOFILE));
-        ErrorDialogue("File error", errmsg, 0);
+		DisplayFileError(file_location);
         return -1;
     }
     if(freopen(file_location, "ab", fptr) == NULL)
     {
-        char errmsg[50];
-        sprintf(errmsg, "Error %d: Error in %s.\n%s", ENOFILE, file_location, strerror(ENOFILE));
-        ErrorDialogue("File error", errmsg, 0);
+		DisplayFileError(file_location);
         return -1;
     }
-    LANDMARK lmark, lmark_b;
-    if(StrInput(lmark.name, "Enter name of landmark: ", 50) == EOF)
-    {
-        fclose(fptr);
-        return 1;
-    }
+    LANDMARK lmark, lmark_searched;
+
+	if ((StrInput(lmark.name, "Enter name of landmark: ", 50)) == EOF)
+	{
+	fclose(fptr);
+	return 1;
+	}
+
     fflush(stdin);
     FILE *fp_search;
     int search_result = search_by_name(lmark.name, lmark_type);
-    if(search_result == -1)
+    if(search_result == EOF)
         return -1;
     else if(search_result == FOUND)
     {
         fp_search = fopen(".\\Temp\\search_result.bin", "rb");
         if(fp_search == NULL)
         {
-            char errmsg[50];
-            sprintf(errmsg, "Error %d: Error in Search_result.bin.\n%s", errno, strerror(errno));
-            ErrorDialogue("File error", errmsg, 0);
+			DisplayFileError(".\\Temp\\search_result.bin");
             fclose(fptr);
             return -1;
         }
         unsigned int sz = 50;
         char *landmarks = calloc(sz, sizeof(char));
-        while(fread(&lmark_b, sizeof(LANDMARK), 1, fp_search))
+        while(fread(&lmark_searched, sizeof(LANDMARK), 1, fp_search))
         {
-            if((strlen(landmarks)+strlen(lmark_b.name)) <= sz-1)
+            if((strlen(landmarks)+strlen(lmark_searched.name)) < sz-1)
             {
-                strcat(landmarks, lmark_b.name);
+                strcat(landmarks, lmark_searched.name);
                 strcat(landmarks, "\n");
             }
             else
@@ -61,20 +57,22 @@ int AddLandmark(char *file_location, int area, int lmark_type)
                 if((tmp_realloc = (char*) realloc(landmarks, sz*sizeof(char))) == NULL)
                 {
                     free(landmarks);
+                    fclose(fptr);
                     fclose(fp_search);
-                    char errmsg[50];
-                    sprintf(errmsg, "Error %d: %s", ENOMEM, strerror(ENOMEM));
-                    ErrorDialogue("Memory allocation error", errmsg, 0);
+                    DisplayMemoryAllocationError();
                     exit(-1);
                 }
-                landmarks = tmp_realloc;
-                fseek(fp_search, -sizeof(LANDMARK), SEEK_CUR);
+                else
+				{
+					landmarks = tmp_realloc;
+					fseek(fp_search, -sizeof(LANDMARK), SEEK_CUR);
+					continue;
+				}
             }
         }
-        char err_msg[110 + 200];
+        char *err_msg = calloc(strlen(lmark.name)+strlen(landmarks)+100, sizeof(char));
         int msgbox_return;
-
-        sprintf(err_msg, "Following landmarks with partial match for \"%s\" already exists.\n%s Do you want to add another landmark with similar name?", lmark.name, landmarks);
+        sprintf(err_msg, "Following landmarks with partial match for \"%s\" already exists:\n%s Do you want to add another landmark with similar name?", lmark.name, landmarks);
         msgbox_return = ErrorDialogue("Name Conflict", err_msg, MB_YESNO);
         switch(msgbox_return)
         {
@@ -82,6 +80,7 @@ int AddLandmark(char *file_location, int area, int lmark_type)
             break;
         case IDNO:
             fclose(fptr);
+            fclose(fp_search);
             free(landmarks);
             return 1;
         }
@@ -111,9 +110,9 @@ int AddLandmark(char *file_location, int area, int lmark_type)
     while(1);
 
     fp_search = fopen(".\\Temp\\search_result.bin", "rb");
-    while(fread(&lmark_b, sizeof(lmark_b), 1, fp_search))
+    while(fread(&lmark_searched, sizeof(lmark_searched), 1, fp_search))
     {
-        if(strcmpi(lmark_b.address, lmark.address) != 0 && search_by_name(lmark.name, lmark_type) == FOUND)
+        if(strcmpi(lmark_searched.address, lmark.address) != 0 && search_result == FOUND)
         {
             ErrorDialogue(0, "Cannot have two landmarks with same name and address.", 0);
             fclose(fptr);
